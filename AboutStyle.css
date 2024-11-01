@@ -65,6 +65,7 @@
   .Menu{
     display:flex;
     gap:10%;
+    width:12%;
     font-family: "Lato", sans-serif;
     font-weight: 500;
     font-style: normal;

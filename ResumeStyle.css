@@ -25,6 +25,11 @@ box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.188),
 0px 12px 12px hsla(0, 0%, 0%, 0.082);
 border:3px solid hsl(50, 50%, 80%)
 }
+h1{
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
 h3 {
   font-family: "Lato", sans-serif;
   font-weight: 900;
@@ -62,20 +67,22 @@ ion-icon {
   font-family: "Squada One", sans-serif;
   font-weight: 400;
   font-style: normal;
+  padding-right: 5rem;
 }
 .head-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  position: fixed;
+  z-index: 100;
   align-items: center;
   background-color: hsl(50, 50%, 89%);
   border-bottom: 1px solid hsl(0, 0%, 80%);
   height: 80px;
   width: 100%;
-  position: fixed;
-  z-index: 100;
+  
 }
-.Menu {
+.Nav {
   display: flex;
   gap: 10%;
   width:12%;
@@ -89,11 +96,46 @@ ion-icon {
 .nav-link {
   color: hsl(50, 50%, 10%);
   text-decoration: none;
+  transition:  0.5s;
 }
 .nav-link:hover {
   color: hsl(110, 80%, 20%);
-  font-weight: 600;
-  transition: color 0.5s;
+  transition:  0.5s;
+}
+/* -----------------------------------------^^^^^ Universal ^^^^^---------------------------------- */
+/* --------------------------------------------LoadingScreen------------------------ */
+#WelcomeScreen{
+position:fixed;
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: hsl(50, 50%, 90%);
+top: 0;
+width:100%;
+height:100%;
+z-index: 101;
+
+transition: opacity 0.3 ease;
+}
+.WelcomeText{
+color:hsl(110, 80%, 20%);
+text-align: center;
+/* margin:0 auto ; */
+animation: fadeIn 2s ease-in-out;
+}
+@keyframes fadeIn {
+  0% {opacity: 0;
+  }
+  100% {
+  opacity: 1;
+  }
+}
+
+/* -----------------------------------------vvvvv Main vvvvv-------------------------------------- */
+.main {
+  padding: 5rem 0 3rem 0;
+  display: flex;
+  justify-content: space-around;
 }
 .experience {
   display: flex;
@@ -102,8 +144,8 @@ ion-icon {
   width: 68%;
   align-items: baseline;
 }
-.experience h2 {
-  padding-bottom: 6%;
+.main h2 {
+  padding-bottom: 1rem;
 }
 
 .card-container {
@@ -111,47 +153,52 @@ ion-icon {
   width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 3%;
-  row-gap: 30px;
+  gap: 3rem;
 }
-.card {
-  font-size: 16px;
-  display: flex;
-  height: 80px;
-  width: 31.3%;
-  flex-direction: column;
+.Project-card {
   color: hsl(110, 80%, 20%);
-  background-color: transparent;
-  cursor: pointer;
   border: 3px solid hsl(110, 80%, 20%);
   box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.188),
     0px 12px 12px hsla(0, 0%, 0%, 0.082);
+  font-size: 1.4rem;
+  display: flex;
+  height: 10rem;
+  width: 20rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
   border-radius: 15px;
-  padding: 2%;
+  padding: .5rem;
   text-decoration: none;
+  /* transition: 0.3s; */
 }
-.card p {
+.Project-card p {
   color: hsl(50, 50%, 10%);
   text-decoration: none;
-  font-weight: 500;
+  
 }
-.card:hover {
+.Project-card:hover {
   box-shadow: 0px 3px hsl(110, 80%, 20%);
-  transition: 0.3s;
-  /* transform: scale( 1.02); */
+  transition: 1s ease-in-out;
+  transform: scale( 1.2);
 }
+/* skills section */
 .skills {
+  
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-.skills h2 {
-  padding-bottom: 40%;
+
 }
 .language-container {
   display: flex;
-  flex-direction: column;
-  row-gap: 10px;
+  /* border:1px solid black; */
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 25rem;
 }
 .language-card {
   display: flex;
@@ -162,20 +209,18 @@ ion-icon {
   box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.188),
     0px 12px 12px hsla(0, 0%, 0%, 0.082);
   border-radius: 15px;
-  width: 150px;
-  height: 150px;
+  width: 10rem;
+  height:10rem;
+  transition: box-shadow 0.5s, transform 0.8s;
 }
 .language-card:hover {
   box-shadow: 0px 0px 8px hsla(110, 80%, 60%, 0.518),
     0px 0px 24px hsla(110, 80%, 20%, 0.482);
-  transform: scale(1.1);
+    background-color: hsl(50, 50%, 90%);
+  transform: scale(1.3);
   transition: box-shadow 0.5s, transform 0.8s;
 }
-.main {
-  padding: 100px 0 3% 0;
-  display: flex;
-  justify-content: space-around;
-}
+
 .education {
   display: flex;
   flex-wrap: wrap;
@@ -184,9 +229,7 @@ ion-icon {
   padding: 3% 0;
   background-color: hsl(50, 50%, 89%);
 }
-.education h2 {
-  padding-bottom: 3%;
-}
+
 .education-container {
   display: flex;
   flex-direction: column;
@@ -196,6 +239,7 @@ ion-icon {
   display: flex;
   flex-direction: column;
 }
+/* -------------------------------- Mobile screen -------------------- */
 @media (max-width: 600px) {
   .main {
     flex-direction: column;

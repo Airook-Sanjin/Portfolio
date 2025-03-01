@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,62 +12,89 @@
     </style>
   </head>
   <body>
-    <header>
+    <div id ="WelcomeScreen">
+      <h1 class="WelcomeText">Welcome to my Portfolio</h1>
+    </div>
       <div class="head-container">
         <h2 id="logo">Erick Sanjuan</h2>
-        <div class="Menu">
+        <div class="Nav">
           <a id="home" class="nav-link">Home</a>
 
-          <a class="nav-link" href="about.html" rel="noopener noreferrer"
+          <a
+            class="nav-link"
+            href="AboutMe/about.html"
+            rel="noopener noreferrer"
             >About</a
           >
-          <a class="nav-link" href="contact.html" rel="noopener noreferrer"
+          <a class="nav-link" href="Contact_Page/contact.html" rel="noopener noreferrer"
             >Contact</a
           >
         </div>
       </div>
-    </header>
     <section class="main">
       <section class="experience">
         <h2>Projects</h2>
         <div class="card-container">
           <a
-            class="card"
+            class="Project-card"
+            href="https://airook-sanjin.github.io/LosPollosHermanos/"
+            target="_blank"
+            title="Click to view"
+          >
+            <h4>Los Pollos Hermanos Web</h4>
+            <p><span>A fully functional restaurant website inspired by the iconic "Breaking Bad" series. Built with HTML, CSS, and JavaScript, featuring a responsive design, interactive menu, and smooth animations.</span></p>
+          </a>
+          <a
+            class="Project-card"
             href="https://airook-sanjin.github.io/Tic-tac-toe/"
             target="_blank"
+            title="Click to view"
           >
             <h4>Tic-Tac-Toe</h4>
-            <p>Check it out</p>
+            <p>A classic game built with JavaScript. Play against a friend or test your skills against the computer!</p>
           </a>
           <a
-            class="card"
+            class="Project-card"
             href="https://airook-sanjin.github.io/rockPaperScissorGame/"
             target="_blank"
+            title="Click to view"
           >
             <h4>Rock Paper Scissors</h4>
-            <p>Check it out!</p>
+            <p>A classic game built with JavaScript. Play against a friend!</p>
           </a>
           <a
-            class="card"
+            class="Project-card"
             href="https://airook-sanjin.github.io/StatedClone/"
             target="_blank"
+            title="Click to view"
           >
             <h4>Stated Clone</h4>
-            <p>Check it out!</p>
+            <p>A responsive clone of the Stated website, built with HTML and CSS. Demonstrates modern web design principles!</p>
           </a>
           <a
-            class="card"
+            class="Project-card"
             href="https://airook-sanjin.github.io/CSET-110-OmnifoodWeb/"
             target="_blank"
+            title="Click to view"
           >
             <h4>OmniFood Clone</h4>
-            <p>Check it out!</p>
+            <p>A fully responsive food delivery website clone, built with HTML, CSS, and JavaScript. Features smooth animations and a clean design.!</p>
           </a>
         </div>
       </section>
       <section class="skills">
         <h2>Skills</h2>
         <div class="language-container">
+          <div class="language-card">
+            <ion-icon name="logo-buffer"></ion-icon>
+            <h4>MySQL</h4>
+            <p>Intermediate</p>
+          </div>
+          <div class="language-card">
+            <ion-icon name="logo-python"></ion-icon>
+            <h4>Python</h4>
+            <p>Intermediate</p>
+          </div>
           <div class="language-card">
             <ion-icon name="logo-javascript"></ion-icon>
             <h4>JavaScript</h4>
@@ -108,5 +135,6 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script type="module" src="IndexPage.js"></script>
   </body>
 </html>

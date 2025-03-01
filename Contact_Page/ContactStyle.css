@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* .squada-one-regular {
+    font-family: "Squada One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  } */
+body {
+  background-color: hsl(50, 50%, 90%);
+  color: hsl(50, 50%, 10%);
+}
+body::-webkit-scrollbar {     /* width of the whole scroll bar */
+  width:12px
+}
+body::-webkit-scrollbar-track{    /* color of the tracking area */
+  background-color:hsl(50, 50%, 81%)
+}
+body::-webkit-scrollbar-thumb{  /* the actual scroll bar thing */
+background-color: hsl(50, 50%, 89%);
+border-radius: 20px;
+box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.188),
+0px 12px 12px hsla(0, 0%, 0%, 0.082);
+border:3px solid hsl(50, 50%, 80%)
+}
+h3 {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+h2 {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 32px;
+  color: hsl(110, 80%, 20%);
+  /* padding-bottom: 6%; */
+}
+h4 {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+p {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+ion-icon {
+  display: flex;
+  font-size: 50px;
+  color: hsl(110, 80%, 20%);
+}
+
+#logo {
+  color: hsl(110, 80%, 20%);
+  padding: 0;
+  font-size: 32px;
+  text-decoration: none;
+  font-family: "Squada One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding-right: 5rem;
+}
+.head-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  z-index: 100;
+  align-items: center;
+  background-color: hsl(50, 50%, 89%);
+  border-bottom: 1px solid hsl(0, 0%, 80%);
+  height: 80px;
+  width: 100%;
+  
+}
+.Nav {
+  display: flex;
+  gap: 10%;
+  width:12%;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+#home {
+  font-weight: 600;
+}
+.nav-link {
+  color: hsl(50, 50%, 10%);
+  text-decoration: none;
+  transition:  0.5s;
+}
+.nav-link:hover {
+  color: hsl(110, 80%, 20%);
+  transition:  0.5s;
+}
+  #Contact {
+    font-weight: 600;
+  }
+  .nav-link {
+    color: hsl(50, 50%, 10%);
+    text-decoration: none;
+  }
+  .nav-link:hover {
+    color: hsl(110, 80%, 20%);
+    font-weight: 600;
+    transition: color 0.5s;
+  }
+  .contact-info{
+    display: flex;
+    justify-content: center;
+    padding: 150px 0 0 0;
+  }
+  .contact-container{
+    display:flex;
+    flex-direction: column;
+    background-color: hsl(50, 50%, 89%);
+    box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.188), 0px 12px 12px hsla(0, 0%, 0%, 0.082);
+    border: 3px solid  hsl(110, 80%, 20%);
+    row-gap:50px;
+    width:30%;
+   padding: 5rem;
+   border-radius: 20px;
+    /* height:70%; */
+  }
+  .contact-card{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:10%;
+    
+  }
+  @media (max-width: 600px) {
+    
+  }

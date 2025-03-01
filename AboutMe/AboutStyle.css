@@ -119,6 +119,9 @@ ion-icon {
     width:30%;
     
   }
+  span{
+    color: hsl(110, 80%, 20%);
+  }
 
   @media (max-width: 600px) {
     .page{

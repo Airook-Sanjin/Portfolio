@@ -97,9 +97,10 @@ ion-icon {
 .nav-link {
   color: hsl(50, 50%, 10%);
   text-decoration: none;
-  transition:  0.5s;
+  transition:  0.5s ease;
 }
 .nav-link:hover {
+  font-size: 1.1rem;
   color: hsl(110, 80%, 20%);
   transition:  0.5s;
 }
@@ -144,7 +145,8 @@ animation: fadeIn 0.5s ease-in-out;
 .experience {
   display: flex;
   flex-direction: column;
-  width: 68%;
+  max-width: 68%;
+  width:100%;
   align-items: baseline;
 }
 .main h2 {
@@ -153,7 +155,7 @@ animation: fadeIn 0.5s ease-in-out;
 
 .card-container {
   display: flex;
-  width: 100%;
+  width: 65rem;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 3rem;
@@ -166,7 +168,8 @@ animation: fadeIn 0.5s ease-in-out;
   font-size: 1.4rem;
   display: flex;
   max-height: 10rem;
-  width: 20rem;
+  max-width: 20rem;
+  
   flex-direction: column;
   text-align: center;
   /* justify-content: center; */
@@ -230,8 +233,10 @@ animation: fadeIn 0.5s ease-in-out;
   box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.188),
     0px 12px 12px hsla(0, 0%, 0%, 0.082);
   border-radius: 15px;
-  width: 10rem;
-  height:10rem;
+  max-width: 10rem;
+  max-height:10rem;
+  width:100%;
+  height:100%;
   transition: box-shadow 0.5s, transform 0.8s;
 }
 .language-card:hover {
@@ -261,25 +266,53 @@ animation: fadeIn 0.5s ease-in-out;
   flex-direction: column;
 }
 /* -------------------------------- Mobile screen -------------------- */
-@media (max-width: 600px) {
+@media (max-width: 606px) {
+  #logo{
+    padding-right: 3rem;
+  }
+  .nav-link {
+   display: none;
+  }
+  
   .main {
+    padding:7rem .4rem;
     flex-direction: column;
     align-items: center;
     row-gap: 50px;
   }
+  .experience{
+    padding: .1rem;
+    width:7rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
   .card-container {
     flex-direction: column;
+    max-width: 14rem;
     gap: 10px;
   }
-  .card {
-    width: 100%;
-    padding: 5%;
+  .Project-card {
+    font-size: 1.2rem;
+    max-width: 15rem;
+    padding: 3rem 1.2rem;
+  }
+  .Project-card p {
+    
+    text-decoration: none;
+    padding-top: 1rem;
+    transform: scale(.55);
+    
+    
   }
   .skills {
     align-items: center;
   }
   .language-container {
     flex-direction: column;
+  }
+  .language-card{
+    padding:1rem
   }
   .skills h2 {
     text-align: center;

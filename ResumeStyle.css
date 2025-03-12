@@ -97,6 +97,7 @@ ion-icon {
 .nav-link {
   color: hsl(50, 50%, 10%);
   text-decoration: none;
+  align-self: center;
   transition:  0.5s ease;
 }
 .nav-link:hover {
@@ -134,7 +135,39 @@ animation: fadeIn 0.5s ease-in-out;
   }
 }
 
-
+/* ----------------------------------vvvvAboutvvvvv--------------------------------- */
+.About-Me{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap:5%;
+  padding: 150px 0 0 0 ;
+  height:38rem;
+}
+.image img {
+  width:100%;
+  max-width: 18rem;
+  height:auto;
+  border-radius: 40px;
+  box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.188), 0px 12px 12px hsla(0, 0%, 0%, 0.082);
+}
+.About-info{
+  font-size: 1.8rem; 
+  width:30%;
+  line-height: 2;
+  align-self: center;
+}
+span{
+  font-weight: 700;
+  color: hsl(110, 80%, 20%);
+  transition: .3s ease;
+}
+span:hover{
+  color: hsl(110, 80%, 30%);
+  font-size: 1.5rem;
+  transition: .3s;
+}
 /* -----------------------------------------vvvvv Main vvvvv-------------------------------------- */
 .main {
   padding: 7rem 2rem;
@@ -273,7 +306,16 @@ animation: fadeIn 0.5s ease-in-out;
   .nav-link {
    display: none;
   }
-  
+  .About-Me{
+    padding: 30rem 0 20rem 0 ;
+  }
+  .About-info{
+    padding-top:1.5rem;
+    font-size: .8rem; 
+    width:80%;
+    line-height: 2;
+    align-self: center;
+  }
   .main {
     padding:7rem .4rem;
     flex-direction: column;

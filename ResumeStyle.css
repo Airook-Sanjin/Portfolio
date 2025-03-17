@@ -94,6 +94,16 @@ ion-icon {
 #home {
   font-weight: 600;
 }
+#More-btn{
+  display: none;
+  background-color: transparent;
+  border: none;
+}
+#More-btn:active{
+  font-size: 3.1rem;
+  background-color: hsl(50, 50%, 79%) ;
+  transition:  0.2s;
+}
 .nav-link {
   color: hsl(50, 50%, 10%);
   text-decoration: none;
@@ -299,6 +309,28 @@ span:hover{
   flex-direction: column;
 }
 /* -------------------------------- Mobile screen -------------------- */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
 @media (max-width: 606px) {
   #logo{
     padding-right: 3rem;
@@ -306,8 +338,39 @@ span:hover{
   .nav-link {
    display: none;
   }
+  .More-Modal{
+    display: none;
+    position:absolute;
+    padding: 1rem 0 1rem 0;
+    top:5rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    min-width: 285.3px;
+    max-height: 600px;
+    background-color: hsl(50, 50%, 85%);
+  }
+  .More-Modal.show {
+    display: flex;
+    animation: slideDown 0.5s forwards;
+  }
+  
+  .More-Modal.hide {
+    animation: slideUp 0.5s forwards;
+  }
+
+  .Modal-link{
+    color: hsl(50, 50%, 10%);
+  text-decoration: none;
+  align-self: center;
+  transition:  0.5s ease;
+  }
+
+  #More-btn{
+    display: block;
+  }
   .About-Me{
-    padding: 30rem 0 20rem 0 ;
+    padding: 35rem 0 24rem 0 ;
   }
   .About-info{
     padding-top:1.5rem;

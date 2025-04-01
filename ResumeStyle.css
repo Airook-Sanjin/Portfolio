@@ -94,12 +94,24 @@ ion-icon {
 #home {
   font-weight: 600;
 }
+#More-btn{
+  display: none;
+  background-color: transparent;
+  border: none;
+}
+#More-btn:active{
+  font-size: 3.1rem;
+  background-color: hsl(50, 50%, 79%) ;
+  transition:  0.2s;
+}
 .nav-link {
   color: hsl(50, 50%, 10%);
   text-decoration: none;
-  transition:  0.5s;
+  align-self: center;
+  transition:  0.5s ease;
 }
 .nav-link:hover {
+  font-size: 1.1rem;
   color: hsl(110, 80%, 20%);
   transition:  0.5s;
 }
@@ -133,7 +145,39 @@ animation: fadeIn 0.5s ease-in-out;
   }
 }
 
-
+/* ----------------------------------vvvvAboutvvvvv--------------------------------- */
+.About-Me{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap:5%;
+  padding: 150px 0 0 0 ;
+  height:38rem;
+}
+.image img {
+  width:100%;
+  max-width: 18rem;
+  height:auto;
+  border-radius: 40px;
+  box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.188), 0px 12px 12px hsla(0, 0%, 0%, 0.082);
+}
+.About-info{
+  font-size: 1.8rem; 
+  width:30%;
+  line-height: 2;
+  align-self: center;
+}
+span{
+  font-weight: 700;
+  color: hsl(110, 80%, 20%);
+  transition: .3s ease;
+}
+span:hover{
+  color: hsl(110, 80%, 30%);
+  font-size: 1.5rem;
+  transition: .3s;
+}
 /* -----------------------------------------vvvvv Main vvvvv-------------------------------------- */
 .main {
   padding: 7rem 2rem;
@@ -144,7 +188,8 @@ animation: fadeIn 0.5s ease-in-out;
 .experience {
   display: flex;
   flex-direction: column;
-  width: 68%;
+  max-width: 68%;
+  width:100%;
   align-items: baseline;
 }
 .main h2 {
@@ -153,7 +198,7 @@ animation: fadeIn 0.5s ease-in-out;
 
 .card-container {
   display: flex;
-  width: 100%;
+  width: 65rem;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 3rem;
@@ -166,7 +211,8 @@ animation: fadeIn 0.5s ease-in-out;
   font-size: 1.4rem;
   display: flex;
   max-height: 10rem;
-  width: 20rem;
+  max-width: 20rem;
+  
   flex-direction: column;
   text-align: center;
   /* justify-content: center; */
@@ -230,8 +276,10 @@ animation: fadeIn 0.5s ease-in-out;
   box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.188),
     0px 12px 12px hsla(0, 0%, 0%, 0.082);
   border-radius: 15px;
-  width: 10rem;
-  height:10rem;
+  max-width: 10rem;
+  max-height:10rem;
+  width:100%;
+  height:100%;
   transition: box-shadow 0.5s, transform 0.8s;
 }
 .language-card:hover {
@@ -261,25 +309,115 @@ animation: fadeIn 0.5s ease-in-out;
   flex-direction: column;
 }
 /* -------------------------------- Mobile screen -------------------- */
-@media (max-width: 600px) {
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 606px) {
+  #logo{
+    padding-right: 3rem;
+  }
+  .nav-link {
+   display: none;
+  }
+  .More-Modal{
+    display: none;
+    position:absolute;
+    padding: 1rem 0 1rem 0;
+    top:5rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    min-width: 285.3px;
+    max-height: 600px;
+    background-color: hsl(50, 50%, 85%);
+  }
+  .More-Modal.show {
+    display: flex;
+    animation: slideDown 0.5s forwards;
+  }
+  
+  .More-Modal.hide {
+    animation: slideUp 0.5s forwards;
+  }
+
+  .Modal-link{
+    color: hsl(50, 50%, 10%);
+  text-decoration: none;
+  align-self: center;
+  transition:  0.5s ease;
+  }
+
+  #More-btn{
+    display: block;
+  }
+  .About-Me{
+    padding: 35rem 0 24rem 0 ;
+  }
+  .About-info{
+    padding-top:1.5rem;
+    font-size: .8rem; 
+    width:80%;
+    line-height: 2;
+    align-self: center;
+  }
   .main {
+    padding:7rem .4rem;
     flex-direction: column;
     align-items: center;
     row-gap: 50px;
   }
+  .experience{
+    padding: .1rem;
+    width:7rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
   .card-container {
     flex-direction: column;
+    max-width: 14rem;
     gap: 10px;
   }
-  .card {
-    width: 100%;
-    padding: 5%;
+  .Project-card {
+    font-size: 1.2rem;
+    max-width: 15rem;
+    padding: 3rem 1.2rem;
+  }
+  .Project-card p {
+    
+    text-decoration: none;
+    padding-top: 1rem;
+    transform: scale(.55);
+    
+    
   }
   .skills {
     align-items: center;
   }
   .language-container {
     flex-direction: column;
+  }
+  .language-card{
+    padding:1rem
   }
   .skills h2 {
     text-align: center;

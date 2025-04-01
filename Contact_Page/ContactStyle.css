@@ -25,6 +25,11 @@ box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.188),
 0px 12px 12px hsla(0, 0%, 0%, 0.082);
 border:3px solid hsl(50, 50%, 80%)
 }
+h1{
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
 h3 {
   font-family: "Lato", sans-serif;
   font-weight: 900;
@@ -47,6 +52,7 @@ p {
   font-family: "Lato", sans-serif;
   font-weight: 300;
   font-style: normal;
+  font-size: 1.125rem;
 }
 ion-icon {
   display: flex;
@@ -85,43 +91,37 @@ ion-icon {
   font-weight: 500;
   font-style: normal;
 }
-#home {
-  font-weight: 600;
-}
 .nav-link {
   color: hsl(50, 50%, 10%);
   text-decoration: none;
-  transition:  0.5s;
+  transition:  0.5s ease;
 }
 .nav-link:hover {
+  font-size: 1.1rem;
   color: hsl(110, 80%, 20%);
-  transition:  0.5s;
+  transition:  0.5s ease;
 }
   #Contact {
     font-weight: 600;
   }
-  .nav-link {
-    color: hsl(50, 50%, 10%);
-    text-decoration: none;
-  }
-  .nav-link:hover {
-    color: hsl(110, 80%, 20%);
-    font-weight: 600;
-    transition: color 0.5s;
-  }
+  /* ------------------------------------------^^^^universal^^^^^ */
   .contact-info{
     display: flex;
-    justify-content: center;
+    flex-direction:column ;
+    align-items: center;
+    gap:10rem;
     padding: 150px 0 0 0;
   }
   .contact-container{
     display:flex;
     flex-direction: column;
     background-color: hsl(50, 50%, 89%);
-    box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.188), 0px 12px 12px hsla(0, 0%, 0%, 0.082);
+    box-shadow: 0px 12px 12px hsla(0, 0%, 0%, 0.188), 0px 20px 12px hsla(0, 0%, 0%, 0.082);
     border: 3px solid  hsl(110, 80%, 20%);
     row-gap:50px;
-    width:30%;
+    width:100%;
+    max-width: 70%;
+    height: auto;
    padding: 5rem;
    border-radius: 20px;
     /* height:70%; */

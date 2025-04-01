@@ -18,3 +18,18 @@ if (!sessionStorage.getItem("FirstTime?")) {
 }
 
 //-----------------------------------------
+let moreButton = document.getElementById('More-btn')
+let moreModal = document.querySelector(".More-Modal")
+moreButton.addEventListener("click", function(){
+  if (moreModal.classList.contains('show')) {
+    moreModal.classList.remove('show');
+    moreModal.classList.add('hide');
+    setTimeout(() => {
+      moreModal.style.display = "none";
+    }, 500); 
+  } else {
+    moreModal.style.display = "flex";
+    moreModal.classList.remove('hide');
+    moreModal.classList.add('show');
+  }
+});

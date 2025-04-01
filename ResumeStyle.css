@@ -329,7 +329,11 @@ span:hover{
   display: flex;
   flex-direction: column;
 }
-
+iframe{
+  width:70%;
+  height:700px;
+  border:none;
+}
 /* -------------------------------- Mobile screen -------------------- */
 @keyframes slideDown {
   from {
@@ -362,14 +366,24 @@ span:hover{
   }
   
   .About-Me{
-    padding: 35rem 0 24rem 0 ;
+    padding: 42rem 0 32rem 0 ;
+  }
+  .About-Me h2{
+    font-size: 1.4rem;
+  }
+  .About-Me p{
+    padding: 1.2rem 0 1.6rem 0;
   }
   .About-info{
     padding-top:1.5rem;
     font-size: .8rem; 
     width:80%;
     line-height: 2;
-    align-self: center;
+    align-self:center;
+    text-align: center;
+  }
+  span:hover{
+    font-size:1.125rem ;
   }
   .main {
     padding:7rem .4rem;
@@ -414,5 +428,10 @@ span:hover{
   .skills h2 {
     text-align: center;
     padding-bottom: 4%;
+  }
+  iframe{
+    width:100px;
+    height:700px;
+    border:none;
   }
 }

@@ -54,7 +54,7 @@ p {
   font-style: normal;
   font-size: 1.125rem;
 }
-ion-icon {
+.Language {
   display: flex;
   font-size: 50px;
   color: hsl(110, 80%, 20%);
@@ -177,6 +177,27 @@ span:hover{
   color: hsl(110, 80%, 30%);
   font-size: 1.5rem;
   transition: .3s;
+}
+.Major{
+  color: hsl(110, 80%, 20%);
+}
+.Major:hover{
+  font-size: 1.125rem;
+  background:linear-gradient(90deg,hsl(110, 80%, 20%), hsl(110, 80%, 30%),hsl(110, 80%, 45%));
+  color:transparent;
+  background-size: 300% 300%;
+  background-clip: text;
+  -moz-background-clip: text;
+  animation: Gradient-shift 3s infinite linear;
+}
+@keyframes Gradient-shift {
+  0%{background-position: 0% 50%;}
+  50%{background-position: 100% 50%;}
+  0%{background-position:0% 50% ;}
+}
+  .Socials{
+  font-size: 1.8rem;
+  color: hsl(110, 80%, 20%);
 }
 /* -----------------------------------------vvvvv Main vvvvv-------------------------------------- */
 .main {
@@ -308,6 +329,7 @@ span:hover{
   display: flex;
   flex-direction: column;
 }
+
 /* -------------------------------- Mobile screen -------------------- */
 @keyframes slideDown {
   from {
@@ -338,37 +360,7 @@ span:hover{
   .nav-link {
    display: none;
   }
-  .More-Modal{
-    display: none;
-    position:absolute;
-    padding: 1rem 0 1rem 0;
-    top:5rem;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 1.5rem;
-    min-width: 285.3px;
-    max-height: 600px;
-    background-color: hsl(50, 50%, 85%);
-  }
-  .More-Modal.show {
-    display: flex;
-    animation: slideDown 0.5s forwards;
-  }
   
-  .More-Modal.hide {
-    animation: slideUp 0.5s forwards;
-  }
-
-  .Modal-link{
-    color: hsl(50, 50%, 10%);
-  text-decoration: none;
-  align-self: center;
-  transition:  0.5s ease;
-  }
-
-  #More-btn{
-    display: block;
-  }
   .About-Me{
     padding: 35rem 0 24rem 0 ;
   }

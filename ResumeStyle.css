@@ -365,7 +365,7 @@ iframe{
   }
 }
 
-@media (max-width: 606px) {
+@media (max-width: 786px) {
   #logo{
     padding-right: 3rem;
   }

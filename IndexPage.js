@@ -17,3 +17,9 @@ if (!sessionStorage.getItem("FirstTime?")) {
   WelcomeScreen.style.display = "none";
 }
 
+// ----------ResumeView-------------
+let screenWidth = window.innerWidth
+let ResumeBTN = document.getElementById("ResumeBTN")
+if (screenWidth < 768){
+  ResumeBTN.style.display="block"
+}

@@ -238,6 +238,23 @@ span:hover {
   flex-wrap: wrap;
   gap: 3rem;
   overflow: hidden;
+  transition: transform 1s ease-in-out ;
+}
+.card-Image-container{
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  max-width: min(90vw, 400px);
+  display: flex;
+  flex-direction: column;
+}
+.card-Image-container img {
+  max-width: 600px;
+  transition: transform 1s ease-in-out ;
+}
+.card-Image:hover img{
+  transform: scale(1.1);
+  transition: transform 1s ease-in-out ;
 }
 .card-Image {
   color: hsl(110, 80%, 20%);
@@ -249,16 +266,15 @@ span:hover {
   flex-direction: column;
   overflow: hidden;
 }
-.card-Image img {
-  max-width: 600px;
-}
-h3{margin: 0px;}
+
+/* h3{margin: 0px;} */
 .card-project {
   font-size: 1.4rem;
   display: flex;
   /* max-height: 15rem; */
   flex-direction: column;
   text-align: left;
+  overflow: hidden;
   padding:1.25rem;
 }
 .Project-btn {
@@ -278,6 +294,10 @@ h3{margin: 0px;}
   transform: translateY(-4px);
   transition: transform 0.1s ease-in-out ;
   
+}
+.button-container{
+  display: flex;
+  gap:1.5rem;
 }
 /* skills section */
 .skills {

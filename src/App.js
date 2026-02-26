@@ -1,24 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import AppIcon from './components/app-icon';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='Desktop'>
+
+      <AppIcon title = "John"></AppIcon>
+      <AppIcon image={"/ApplicationIcon.webp"}></AppIcon>
+      </div>
+      <div className ="Taskbar">
+
     </div>
+    </div>
+
+    
   );
 }
 

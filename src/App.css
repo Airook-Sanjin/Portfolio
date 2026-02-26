@@ -13,6 +13,9 @@
   }
 }
 .AppIconContainer{
+  position: absolute;
+  left:x;
+  top:y;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +34,8 @@
 .Desktop {
   position: relative;
   background-image: url("/public/Desktop.webp");
-  min-height: 100vh;
+  height: 100vh;
+  width:100%;
   font-size: calc(10px + 2vmin);
   color: white;
 }

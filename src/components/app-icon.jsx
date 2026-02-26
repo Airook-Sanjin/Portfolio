@@ -8,6 +8,10 @@ export default function AppIcon({
   className = "AppIconContainer",
   title = "App icon",
   image = null,
+  onClick,
+  appId,
+  x=0,
+  y=0,
   ...props
 }) {
   return (
@@ -15,6 +19,9 @@ export default function AppIcon({
     color="white"
     className={className} 
     title = {title}
+    style={{ position: "absolute", left: x, top: y, userSelect: "none" }}
+    onClick={() => onClick?.(appId,title)}
+    
     {...props}>
 
       {image ? (<div

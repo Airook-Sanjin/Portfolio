@@ -13,9 +13,6 @@
   }
 }
 .AppIconContainer{
-  position: absolute;
-  left:x;
-  top:y;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,6 +44,30 @@
   min-width:100vw;
   background-color: hsla(180, 97%, 65%, 0.904);
 }
+/* Windows----------- */
+.WindowContainer{
+  border: 4px solid hsl(0, 83%, 30%); 
+  background-color: antiquewhite;
+  position: absolute;
+  min-width:50vw;
+  min-height: 60vh;
+}
+.TitleBar{
+  max-height: 20px;
+  background-color: hsl(0, 0%, 80%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tools{
+  display: flex;
+
+}
+.tools .Btn{
+  border:1px solid  hsl(0, 0%, 80%);;
+  background-color: hsla(0, 0%, 100%, 0.348);
+}
+
 
 .App-link {
   color: #61dafb;

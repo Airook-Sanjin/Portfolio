@@ -7,11 +7,7 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 .AppIconContainer{
   display: flex;
   flex-direction: column;
@@ -31,11 +27,23 @@
 .Desktop {
   position: relative;
   background-image: url("/public/Desktop.webp");
-  height: 100vh;
-  width:100%;
+  min-height: 100vh;
+  min-width:100%;
   font-size: calc(10px + 2vmin);
   color: white;
+  background-repeat: no-repeat;
 }
+
+.iframe-container{
+  container-type: size;
+    width: 100vh;
+    min-height: 200px;
+    resize: vertical;
+    overflow: auto;
+}
+
+
+
 .Taskbar {
   position: absolute;
   z-index: 4;
@@ -46,6 +54,7 @@
 }
 /* Windows----------- */
 .WindowContainer{
+  
   border: 4px solid hsl(0, 83%, 30%); 
   background-color: antiquewhite;
   position: absolute;
@@ -73,11 +82,4 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+

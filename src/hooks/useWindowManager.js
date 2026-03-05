@@ -23,6 +23,7 @@ function useWindowManager(){
               windowId: counterId.current,
               title: app.title,
               appId: app.id,
+              src:app.src,
               x: 50,
               y: 50,
               zIndex: topZ.current,
@@ -41,8 +42,16 @@ function useWindowManager(){
             ),
           );
         }
-    }
+    };
 
+      const closeOpenWindow = (windowID) => {
+          setOpenWindows((prev) =>
+            prev.filter(window => window.windowId !== windowID )
+          )
+       
+      }
+
+//  Dragging functionality------------
     const [dragging, setDragging] = useState(null);
   //  guide: dragging = {id,offestX,offsetY}
 
@@ -84,6 +93,7 @@ function useWindowManager(){
         startWindowDrag,
         windowDrag,
         endWindowDrag,
+        closeOpenWindow,
     };
 }
 export default useWindowManager;

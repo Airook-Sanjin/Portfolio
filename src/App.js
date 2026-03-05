@@ -1,12 +1,14 @@
 import "./App.css";
 
 import AppIcon from "./components/app-icon";
+import TaskbarIcon from "./components/taskbar-icon";
 import Window from "./components/window-type";
 
 
 
 
 import useIconDrag from "./hooks/useIconDrag";
+import useTaskbarManager from "./hooks/useTaskbarManager";
 import useWindowManager from "./hooks/useWindowManager";
 
 function App() {
@@ -20,8 +22,12 @@ function App() {
       addOpenWindow,
       startWindowDrag,
       windowDrag,
-      endWindowDrag
-    } = useWindowManager();
+      endWindowDrag,
+      closeOpenWindow} = useWindowManager();
+
+    const{openTaskbar,
+          closeOpenTaskbar,
+          addOpenTaskbar} = useTaskbarManager()
 
     const handleDesktopMouseMove = (e)=>{
       appDrag(e);
@@ -31,6 +37,15 @@ function App() {
     const handleDesktopMouseEnd = ()=>{
       endAppDrag();
       endWindowDrag();
+    }
+    const handleAppOpen=(app)=>{
+      addOpenWindow(app);
+      addOpenTaskbar(app);
+    }
+    const handleCloseWindow=(windowId)=>{
+      closeOpenWindow(windowId);
+      closeOpenTaskbar(windowId)
+
     }
   
   
@@ -50,7 +65,8 @@ function App() {
             key={app.id}
             appId={app.id}
             title={app.title}
-            onDoubleClick={() => addOpenWindow(app)}
+            src={app.src}
+            onDoubleClick={() => handleAppOpen(app)}
             x={app.x}
             y={app.y}
             onMouseDown={(e) => startAppDrag(e, app.id)}
@@ -66,11 +82,26 @@ function App() {
             x={window.x}
             y={window.y}
             zindex={window.zIndex}
+            src={window.src}
+            
             startWindowDrag={startWindowDrag}
+            handleCloseWindow={handleCloseWindow}
+
           />
         ))}
       </div>
-      <div className="Taskbar"></div>
+      <div className="Taskbar">
+        {openTaskbar.map((taskbar) => (
+          <TaskbarIcon
+            key={taskbar.taskbarID}
+            taskbarID={taskbar.taskbarID}
+            appId={taskbar.appId}
+            windowId={taskbar.windowId}
+            title={taskbar.title}
+            x={taskbar.x}
+          />
+        ))}
+      </div>
      
     </div>
   );

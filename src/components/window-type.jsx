@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Minus, X, Maximize} from "lucide-react";
+import ProgramEmbed from "./app-program";
 
 
 
@@ -13,17 +14,21 @@ export default function Window(
   onClick,
   windowId,
   appId,
+  src,
   x = 0,
   y = 0,
   zIndex=0,
   startWindowDrag,
+  handleCloseWindow,
   ...props
 }
 ) {
+
   return (
     
-  <window
+  <div
   className={className}
+  src={src}
   style={{ position: "absolute", left: x, top: y, userSelect: "none" }}
   {...props}
   >
@@ -33,16 +38,17 @@ export default function Window(
       <p className="title">{title}</p>
       <div className="tools">
         <button className=" Btn Minimize" type="button"><Minus></Minus></button>
-        <button className=" Btn Minimize" type="button"><Maximize></Maximize></button>
-        <button className=" Btn Exit" type="button"><X></X></button>
+        <button className=" Btn Maximize" type="button"><Maximize></Maximize></button>
+        <button className=" Btn Exit" onClick={()=> handleCloseWindow(windowId)} type="button"><X></X></button>
       </div>
       
     </header>
-    <program>
-      <p>I am program</p>
-    </program>
-
-  </window>
+    
+      <ProgramEmbed
+      src={src}
+      title={title}/>
+    
+  </div>
   );
 }
 Window.propTypes = {
@@ -50,4 +56,5 @@ Window.propTypes = {
   color: PropTypes.string,
   className: PropTypes.string,
   title: PropTypes.string,
+  src:PropTypes.string,
 };

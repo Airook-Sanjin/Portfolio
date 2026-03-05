@@ -12,11 +12,7 @@ export default function ProgramEmbed(
     <iframe 
     className={className}
       src={src}
-      title={title + "App"}
-      overflow="hidden"
-      overflow-clip-margin="none"
-      
-      style={{ border: "none",height:"100%",width:"100%"}}
+      title={`${title} App`}
       {...props}
     />
   );

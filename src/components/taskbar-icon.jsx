@@ -2,25 +2,27 @@ import PropTypes from "prop-types";
 import { File } from "lucide-react";
 
 export default function TaskbarIcon({
-    size = 40,
-    color = "currentColor",
-    className = "taskbarIconContainer",
-    title = "Taskbar icon",
-    image = null,
-    taskbarID,
-    appId,
-    windowId,
-    x = 0,
-    ...props
-}) { return(
-<div
-    className={className}
-    image = {image}
-    style={{ userSelect: "none" }}
-   
-    {...props}
->
-    {image ? (
+  size = 30,
+  color = "currentColor",
+  className = "taskbarIconContainer",
+  title = "Taskbar icon",
+  image = null,
+  taskbarID,
+  appId,
+  windowId,
+  restoreWindow,
+  x = 0,
+  ...props
+}) {
+  return (
+    <div
+      className={className}
+      image={image}
+      style={{ userSelect: "none" }}
+      onClick={() => restoreWindow(windowId)}
+      {...props}
+    >
+      {image ? (
         <div
           className="TaskbarIconImage"
           style={{
@@ -34,10 +36,9 @@ export default function TaskbarIcon({
       ) : (
         <File className="TaskbarIconImage" size={size}></File>
       )}
-
-</div>
-
-)}
+    </div>
+  );
+}
 TaskbarIcon.propTypes = {
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   color: PropTypes.string,

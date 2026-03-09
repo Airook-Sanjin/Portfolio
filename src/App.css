@@ -100,8 +100,7 @@
   border: 4px solid hsl(0, 83%, 30%); 
   background-color: antiquewhite;
   position: absolute;
-  width:50vw;
-  height: 60vh;
+ 
 }
 .Program{
   flex:1 1 auto;
@@ -125,7 +124,7 @@
 .TitleBar .title{
   font-family: Ntype82;
 }
-.IconImage{
+.IconImage,.TaskbarIconImage{
   border-radius: 10px;
 }
 .tools{

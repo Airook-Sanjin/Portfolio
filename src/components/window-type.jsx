@@ -10,7 +10,7 @@ export default function Window(
   color = "currentColor",
   className = "WindowContainer",
   title = "Window",
-  image = null,
+  image,
   onClick,
   windowId,
   appId,
@@ -34,7 +34,7 @@ export default function Window(
   >
     <header className="TitleBar"
             onMouseDown={(e)=>startWindowDrag(e,windowId)}>
-      <img src={image} alt="icon" size = "4" />
+      <img src={image} alt="icon" size = "1" />
       <p className="title">{title}</p>
       <div className="tools">
         <button className=" Btn Minimize" type="button"><Minus></Minus></button>

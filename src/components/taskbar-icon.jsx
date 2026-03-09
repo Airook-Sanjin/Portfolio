@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { File } from "lucide-react";
 
 export default function TaskbarIcon({
-    size = 30,
+    size = 40,
     color = "currentColor",
     className = "taskbarIconContainer",
     title = "Taskbar icon",
@@ -16,7 +16,7 @@ export default function TaskbarIcon({
 <div
     className={className}
     image = {image}
-    style={{ position: "absolute", left: x, userSelect: "none" }}
+    style={{ userSelect: "none" }}
    
     {...props}
 >
@@ -32,7 +32,7 @@ export default function TaskbarIcon({
           }}
         />
       ) : (
-        <File className="IconImage" size={size}></File>
+        <File className="TaskbarIconImage" size={size}></File>
       )}
 
 </div>

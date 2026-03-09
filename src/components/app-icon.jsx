@@ -7,7 +7,7 @@ export default function AppIcon({
   color = "currentColor",
   className = "AppIconContainer",
   title = "App icon",
-  image = null,
+  image ,
   onClick,
   appId,
   x = 0,

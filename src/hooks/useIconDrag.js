@@ -1,7 +1,7 @@
 import { useState } from "react";
 function useIconDrag() {
   const [apps, setApps] = useState([
-    {id: 1,title: "Calculator",x: 40,y: 40,image: null,type:"calculator", src:"https://airook-sanjin.github.io/AS_Calculator/"},
+    {id: 1,title: "Calculator",x: 40,y: 40,image:"/Calculator.webp",type:"calculator", src:"https://airook-sanjin.github.io/AS_Calculator/"},
 
     {id: 2, title: "resume", x: 40, y: 140, image: null, type: "resume", src:"/ErickSanjuan - Resume2026.pdf#zoom=100" },
   ]);

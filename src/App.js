@@ -3,6 +3,7 @@ import "./App.css";
 import AppIcon from "./components/app-icon";
 import TaskbarIcon from "./components/taskbar-icon";
 import Window from "./components/window-type";
+import ProfileGreetings from "./components/profile-greeting"
 
 
 
@@ -10,6 +11,7 @@ import Window from "./components/window-type";
 import useIconDrag from "./hooks/useIconDrag";
 import useTaskbarManager from "./hooks/useTaskbarManager";
 import useWindowManager from "./hooks/useWindowManager";
+import { useDate } from "./hooks/returnDate";
 
 function App() {
   
@@ -60,11 +62,14 @@ function App() {
         onMouseUp={handleDesktopMouseEnd}
         onMouseLeave={handleDesktopMouseEnd}
       >
+        <ProfileGreetings
+        useDate = {useDate}/>
         {apps.map((app) => (
           <AppIcon
             key={app.id}
             appId={app.id}
             title={app.title}
+            image={app.image}
             src={app.src}
             onDoubleClick={() => handleAppOpen(app)}
             x={app.x}
@@ -79,6 +84,7 @@ function App() {
             windowId={window.windowId}
             appId={window.appId}
             title={window.title}
+            image={window.image}
             x={window.x}
             y={window.y}
             zindex={window.zIndex}
@@ -98,6 +104,7 @@ function App() {
             appId={taskbar.appId}
             windowId={taskbar.windowId}
             title={taskbar.title}
+            image={taskbar.image}
             x={taskbar.x}
           />
         ))}

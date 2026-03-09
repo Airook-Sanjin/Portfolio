@@ -17,6 +17,7 @@ function useTaskbarManager(){
                     taskbarID: taskbarId.current,
                     title: app.title,
                     appId: app.id,
+                    image:app.image,
                     x: 50,
                     },
                 ]);

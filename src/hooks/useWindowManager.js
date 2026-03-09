@@ -23,6 +23,7 @@ function useWindowManager(){
               windowId: counterId.current,
               title: app.title,
               appId: app.id,
+              image:app.image,
               src:app.src,
               x: 50,
               y: 50,

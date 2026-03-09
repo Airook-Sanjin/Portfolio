@@ -2,6 +2,14 @@
   font-family: Ndot57;
   src: url("/public/Ndot57-Regular.otf");
 }
+@font-face {
+  font-family: Ntype82;
+  src: url("/public/NType82-Regular.otf");
+}
+@font-face {
+  font-family: Inter-reg;
+  src: url("/public/Inter-Regular.ttf");
+}
 .App {
   text-align: center;
 }
@@ -14,7 +22,7 @@
   position:absolute;
   left:45vw;
   top:25vh;
-  z-index:1 ;
+  
   font-family:Ndot57
 
 }
@@ -26,6 +34,7 @@
   align-items: center;
   width:100px;
   height:100px;
+  font-family: Inter-reg;
 }
 .IconLabel{
   font-size: small;
@@ -43,7 +52,7 @@
   min-width:100%;
   font-size: calc(10px + 2vmin);
   color: white;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
 }
 
 .iframe-container{
@@ -112,6 +121,9 @@
 .TitleBar img{
   width:25px;
   height:25px;
+}
+.TitleBar .title{
+  font-family: Ntype82;
 }
 .IconImage{
   border-radius: 10px;

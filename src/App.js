@@ -64,6 +64,7 @@ function App() {
       >
         <ProfileGreetings
         useDate = {useDate}/>
+        
         {apps.map((app) => (
           <AppIcon
             key={app.id}

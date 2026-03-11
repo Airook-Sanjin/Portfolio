@@ -4,11 +4,14 @@ import AppIcon from "./components/app-icon";
 import TaskbarIcon from "./components/taskbar-icon";
 import Window from "./components/window-type";
 import ProfileGreetings from "./components/profile-greeting";
+import Loading from "./components/loading-screen";
+
 
 import useIconDrag from "./hooks/useIconDrag";
 
 import useWindowManager from "./hooks/useWindowManager";
 import { useDate } from "./hooks/returnDate";
+import { useState, useEffect } from "react";
 
 function App() {
   const { apps, startAppDrag, appDrag, endAppDrag } = useIconDrag();
@@ -43,15 +46,30 @@ function App() {
   const handleCloseWindow = (windowId) => {
     closeOpenWindow(windowId);
   };
+ 
+  const[isLoading,setLoading]=useState(true);
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setLoading(false);
+
+    },5000);
+  },[]);
+
 
   return (
     <div className="App">
-      <div
+      {isLoading ? (
+        <Loading/>
+      ) :
+      (<>
+        <div
         className="Desktop"
         onMouseMove={(e) => handleDesktopMouseMove(e)}
         onMouseUp={handleDesktopMouseEnd}
         onMouseLeave={handleDesktopMouseEnd}
       >
+
         <ProfileGreetings useDate={useDate} />
 
         {apps.map((app) => (
@@ -90,6 +108,8 @@ function App() {
             />
           ))}
       </div>
+
+
       <div className="Taskbar">
         {openWindows.map((window) => (
           <TaskbarIcon
@@ -101,7 +121,12 @@ function App() {
             
           />
         ))}
+
       </div>
+        </>
+      
+      )}
+      
     </div>
   );
 }

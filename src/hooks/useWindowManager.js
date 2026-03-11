@@ -6,6 +6,9 @@ function useWindowManager() {
   let topZ = useRef(1);
   const [openWindows, setOpenWindows] = useState([]);
   // guide: windowId,appId,Title,,x,y,zIndex
+  const clamp = (value, min, max) => {
+    return Math.min(max, Math.max(min, value));
+  };
 
   const addOpenWindow = (app) => {
     const existingWindow = openWindows.find((w) => w.appId === app.id);
@@ -25,6 +28,7 @@ function useWindowManager() {
           y: 50,
           zIndex: topZ.current,
           isMinimized: false,
+          isExpanded: false,
         },
       ]);
     } else {
@@ -62,17 +66,25 @@ function useWindowManager() {
     );
   };
 
-  const expandOpenWindow=(windowID) =>{
-setOpenWindows((prev) =>
+  const expandOpenWindow = (windowID) => {
+    setOpenWindows((prev) =>
       prev.map((foundWindow) =>
         foundWindow.windowId === windowID
-          ? {
-              ...foundWindow,
-              width: "100%",
-              height:"100%",
-              x:0,
-              y:0,
-            }
+          ? foundWindow.isExpanded
+            ? {
+                ...foundWindow,
+                width: "50vw",
+                height: "60vh",
+                isExpanded: false,
+              }
+            : {
+                ...foundWindow,
+                width: "100%",
+                height: "100%",
+                x: 0,
+                y: 0,
+                isExpanded: true,
+              }
           : foundWindow,
       ),
     );
@@ -82,10 +94,15 @@ setOpenWindows((prev) =>
     setOpenWindows((prev) =>
       prev.map((foundWindow) =>
         foundWindow.windowId === windowId
-          ? {
-              ...foundWindow,
-              isMinimized: false,
-            }
+          ? foundWindow.isMinimized
+            ? {
+                ...foundWindow,
+                isMinimized: false,
+              }
+            : {
+                ...foundWindow,
+                isMinimized: true,
+              }
           : foundWindow,
       ),
     );
@@ -107,15 +124,22 @@ setOpenWindows((prev) =>
   };
 
   const windowDrag = (e) => {
+    const windowWidth = window.innerWidth * 0.5
+    const minX= -(windowWidth - (windowWidth-200));
+    const minY=0;
+    const maxY = window.innerHeight - (26+47)
     if (!dragging) return;
-
+    const maxX = window.innerWidth - (windowWidth-200);
+    const newX = e.clientX-dragging.offsetX;
+    const newY = e.clientY-dragging.offsetY;
     setOpenWindows((prev) =>
       prev.map((window) =>
         window.windowId === dragging.id
           ? {
               ...window,
-              x: e.clientX - dragging.offsetX,
-              y: e.clientY - dragging.offsetY,
+              
+              x: clamp(newX,minX,maxX),
+              y: clamp(newY,0,maxY),
             }
           : window,
       ),

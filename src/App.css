@@ -10,9 +10,68 @@
   font-family: Inter-reg;
   src: url("/public/Inter-Regular.ttf");
 }
+@keyframes zoomInNOut{
+ 0%{
+  transform:scale(1);
+
+ }
+ 50%{
+  transform: scale(2);
+  box-shadow: 0px 0px 24px 1px #FFFF  ;
+  
+ }
+ 100%{
+  transform: scale(1);
+  
+ }
+}
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
+
+/* Loading CSS */
+.loading{
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  gap:10px;
+}
+.Circle{
+  border-radius: 50%;
+  background-color: whitesmoke;
+  height: 10px;
+  width:  10px;
+  animation: zoomInNOut 1s ease-in-out 0ms infinite ;
+}
+/* .circle1{
+  animation: zoomInNOut 1s ease-in-out 0ms infinite ;
+ 
+}
+.circle2{
+animation: zoomInNOut 1s ease-in-out 100ms infinite ;
+}
+.circle3{
+  animation: zoomInNOut 1s ease-in-out 200ms infinite ;
+}
+.circle4{
+  animation: zoomInNOut 1s ease-in-out 300ms infinite ;
+}
+.circle5{
+  animation: zoomInNOut 1s ease-in-out 400ms infinite ;
+} */
+
+
+
+
+/* --------- */
 
 .App-logo {
   height: 40vmin;
@@ -46,6 +105,7 @@
 }
 .Desktop {
   position: relative;
+  overflow: hidden;
   /* background-image: url("/public/Desktop.webp"); */
   background-color: black;
   min-height: 100vh;
@@ -100,7 +160,14 @@
   border: 4px solid hsl(0, 83%, 30%); 
   background-color: antiquewhite;
   position: absolute;
+  /* !-------dont change */
+ max-width: 99.5vw;
+ max-height: 94.4vh;
  
+ /* !------------------- */
+}
+.WindowContainer:{
+  cursor:e-resize;
 }
 .Program{
   flex:1 1 auto;

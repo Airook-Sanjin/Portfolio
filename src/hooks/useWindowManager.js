@@ -1,5 +1,16 @@
-import { useRef } from "react";
-import { useState } from "react";
+
+import { useState,useEffect,useRef } from "react";
+
+import "../components/WindowCard/PixelCard.css";
+
+
+
+
+
+
+
+
+// !--------------------TEST------------------------
 
 function useWindowManager() {
   let counterId = useRef(0);
@@ -20,10 +31,11 @@ function useWindowManager() {
         ...prev,
         {
           windowId: counterId.current,
-          title: app.title,
+          label: app.title,
           appId: app.id,
-          image: app.image,
+          icon: app.image,
           src: app.src,
+          width:app.width,
           x: 50,
           y: 50,
           zIndex: topZ.current,

@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 import { File } from "lucide-react";
 
+import "./Taskbar.css"
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'motion/react';
+import { Children, cloneElement, useEffect, useMemo, useRef, useState } from 'react';
+
 export default function TaskbarIcon({
   size = 30,
   color = "currentColor",
@@ -12,8 +16,14 @@ export default function TaskbarIcon({
   windowId,
   restoreWindow,
   x = 0,
+
   ...props
 }) {
+
+  
+
+
+
   return (
     <div
       className={className}
@@ -39,6 +49,8 @@ export default function TaskbarIcon({
     </div>
   );
 }
+
+
 TaskbarIcon.propTypes = {
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   color: PropTypes.string,

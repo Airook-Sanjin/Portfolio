@@ -1,0 +1,22 @@
+.AppIconContainer{
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  align-items: center;
+  width:100px;
+  height:100px;
+  font-family: Inter-reg;
+}
+.IconImage{
+  /* background-color: var(--text-color); */
+}
+.IconLabel{
+  font-size: small;
+}
+.IconImage:hover{
+  cursor: pointer;
+  /* background-color: hsla(0, 0%, 59%, 0.348); */
+  box-shadow: 0px 0px 5px 15px hsla(0, 0%, 59%, 0.348) ;
+
+}

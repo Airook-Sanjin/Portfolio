@@ -1,6 +1,8 @@
 
 import { File } from "lucide-react";
 import PropTypes from "prop-types";
+import "./appIcon.css"
+// import NoImage from "./appIcons/ApplicationIcon.webp"
 
 export default function AppIcon({
   size = 50,
@@ -10,10 +12,13 @@ export default function AppIcon({
   image ,
   onClick,
   appId,
+  theme,
   x = 0,
   y = 0,
   ...props
 }) {
+  let Folder;
+  theme==="light"? Folder = "light": Folder="dark"
   return (
     <div
       color="white"
@@ -23,20 +28,18 @@ export default function AppIcon({
       onClick={onClick}
       {...props}
     >
-      {image ? (
+      
         <div
           className="IconImage"
           style={{
-            backgroundImage: image ? `url(${image})` : undefined,
+            backgroundImage: image ? `url(/appIcons/${Folder + image})` : `url(/appIcons/ApplicationIcon.webp)`,
             width: typeof size === "number" ? `${size}px` : size,
             height: typeof size === "number" ? `${size}px` : size,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         />
-      ) : (
-        <File className="IconImage" size={size}></File>
-      )}
+      
 
       <p className="IconLabel">{title}</p>
     </div>

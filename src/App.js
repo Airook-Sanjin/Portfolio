@@ -1,10 +1,9 @@
 import "./App.css";
 
-import AppIcon from "./components/app-icon";
+import AppIcon from "./components/AppIcons/app-icon";
 // import TaskbarIcon from "./components/taskbar-icon";
 import Window from "./components/WindowCard/window-type";
 import ProfileGreetings from "./components/Greeting/profile-greeting"
-import PixelCard from "./components/PixelCard/PixelCard";
 import Taskbar from "./components/Taskbar/taskbar";
 import Loading from "./components/LoadingScreen/loading-screen";
 
@@ -94,6 +93,7 @@ function App() {
             {apps.map((app) => (
               <AppIcon
                 key={app.id}
+                theme={theme}
                 appId={app.id}
                 title={app.title}
                 image={app.image}
@@ -112,6 +112,7 @@ function App() {
               .map((window) => (
                 <Window
                   key={window.windowId}
+                  theme={theme}
                   windowId={window.windowId}
                   appId={window.appId}
                   label={window.label}
@@ -129,16 +130,21 @@ function App() {
                 />
               ))}
           </div>
+          
           <Taskbar
             items={openWindows}
             panelHeight={68}
             baseItemSize={50}
             magnification={70}
             restoreWindow={restoreWindow}
-          />
+            toggleLorD={toggleLorD}
+            theme={theme}
+          > </Taskbar>
           
         </>
+        
       )}
+      
     </div>
   );
 }

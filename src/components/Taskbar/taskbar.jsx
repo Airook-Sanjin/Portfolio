@@ -29,6 +29,7 @@ function TaskbarItem({
   distance,
   magnification,
   baseItemSize,
+  toggleLorD,
 }) {
   const ref = useRef(null);
   const ishovered = useMotionValue(0);
@@ -112,12 +113,17 @@ function TaskbarIcon({
   appId,
   windowId,
   restoreWindow,
+  toggleLorD,
   ...props
 }) {
   return (
     <motion.div
       className={`taskbar-icon ${className}`}
-      style={{ width: size, height: size,...style }}
+      style={{ width: size, height: size,
+        backgroundImage: image ? `url(${image})` : undefined,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        ...style }}
       {...props}
     >
       {children}
@@ -128,6 +134,8 @@ function TaskbarIcon({
 export default function Taskbar({
   items,
   restoreWindow,
+  theme,
+  toggleLorD,
   className = "",
   spring = { mass: 0.1, stiffness: 150, damping: 12 },
   magnification = 70,
@@ -145,6 +153,9 @@ export default function Taskbar({
   );
   const heightRow = useTransform(ishovered, [0, 1], [panelHeight, maxHeight]);
   const height = useSpring(heightRow, spring);
+
+  let Folder;
+  theme==="light"? Folder = "light": Folder="dark"
 
   return (
     <motion.div
@@ -178,7 +189,7 @@ export default function Taskbar({
           >
             <TaskbarIcon
               style={{
-                backgroundImage: item.icon ? `url(${item.icon})` : undefined,
+                backgroundImage: item.icon ? `url(/appIcons/${Folder+item.icon})` : undefined,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 
@@ -187,6 +198,27 @@ export default function Taskbar({
             <TaskbarLabel>{item.label}</TaskbarLabel>
           </TaskbarItem>
         ))}
+        <TaskbarItem
+        key={0}
+        
+        className={"light-dark"}
+        mouseX={mouseX}
+        spring={spring}
+        distance={distance}
+        magnification={magnification}
+        baseItemSize={baseItemSize}
+        onClick={()=>toggleLorD()}
+        theme={theme}
+        >
+          <TaskbarIcon
+          theme={theme}
+          image={theme==="light" ? "/appIcons/light/theme.webp" : "/appIcons/dark/theme.webp"}
+          />
+          <TaskbarLabel theme={theme}>{theme=== "light" ? "Light Mode" : "Dark Mode"}</TaskbarLabel>
+
+         
+
+        </TaskbarItem>
       </motion.div>
     </motion.div>
   );

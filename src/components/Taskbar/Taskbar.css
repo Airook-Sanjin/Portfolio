@@ -1,3 +1,11 @@
+:root{
+    --panel-color:light-dark(hsla(0, 0%, 0%, 0.093),hsla(0, 0%, 100%, 0.093));
+    --text-color:light-dark(black,white);
+    --button: light-dark(hsl(0, 0%, 100%),hsl(0, 0%, 11%) );
+    --button-text:light-dark(hsl(0, 0%, 0%),rgb(255, 255, 255));
+    --prenumber-text:light-dark(hsl(0,0%,20%),hsl(0,0%,80%))
+}
+
 .taskbar-outer {
   margin: 0 0.5rem;
   display: flex;
@@ -23,8 +31,8 @@
   width: fit-content;
   gap: 1rem;
   border-radius: 1rem;
-  background-color: #060010;
-  border: 1px solid #222;
+  background-color: var(--panel-color);
+  border: 1px solid var(--text-color);
   padding: 0 0.5rem 0.5rem;
   pointer-events: auto;
 }
@@ -35,7 +43,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  background-color: #060010;
+  background-color: var(--button);
   border: 1px solid #222;
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -49,6 +57,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .taskbar-label {

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Minus, X, Maximize } from "lucide-react";
-import ProgramEmbed from "../app-program";
+import ProgramEmbed from "./app-program";
 import { useState,useEffect,useRef } from "react";
 import "./PixelCard.css";
 
@@ -140,6 +140,7 @@ export default function Window({
   noFocus,
   className = "WindowContainer",
   label = "Window",
+  theme,
   icon,
   onClick,
   windowId,
@@ -258,7 +259,8 @@ const containerRef = useRef(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finalGap, finalSpeed, finalColors, finalNoFocus]);
 
-
+let Folder;
+  theme==="light"? Folder = "light": Folder="dark"
 
   return (
     <div
@@ -289,7 +291,7 @@ const containerRef = useRef(null);
         
       >
         
-        <img src={icon} alt="icon" size="1" />
+        <img src={"/appIcons/" + Folder + icon} alt="icon" size="1" />
         <p className="title">{label}</p>
         <div className="tools">
           <button

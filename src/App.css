@@ -1,14 +1,14 @@
 @font-face {
   font-family: Ndot57;
-  src: url("/public/Ndot57-Regular.otf");
+  src: url("/public/fonts/Ndot57-Regular.otf");
 }
 @font-face {
   font-family: Ntype82;
-  src: url("/public/NType82-Regular.otf");
+  src: url("/public/fonts/NType82-Regular.otf");
 }
 @font-face {
   font-family: Inter-reg;
-  src: url("/public/Inter-Regular.ttf");
+  src: url("/public/fonts/Inter-Regular.ttf");
   
 }
 
@@ -77,24 +77,7 @@
 
 }
 
-.AppIconContainer{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width:100px;
-  height:100px;
-  font-family: Inter-reg;
-}
-.IconLabel{
-  font-size: small;
-}
-.AppIconContainer:hover{
-  cursor: pointer;
-  background-color: hsla(0, 0%, 59%, 0.348);
-  box-shadow: 0px 0px 5px 10px hsla(0, 0%, 59%, 0.348) ;
 
-}
 .Desktop {
   position: relative;
   overflow: hidden;

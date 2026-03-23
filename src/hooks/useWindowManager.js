@@ -1,7 +1,7 @@
 
 import { useState,useEffect,useRef } from "react";
 
-import "../components/WindowCard/PixelCard.css";
+import "../components/WindowCard/Window.css";
 
 
 

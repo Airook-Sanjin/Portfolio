@@ -212,7 +212,7 @@ export default function Taskbar({
         >
           <TaskbarIcon
           theme={theme}
-          image={theme==="light" ? "/appIcons/light/theme.webp" : "/appIcons/dark/theme.webp"}
+          image={theme==="light" ? "/appIcons/light/theme.svg" : "/appIcons/dark/theme.svg"}
           />
           <TaskbarLabel theme={theme}>{theme=== "light" ? "Light Mode" : "Dark Mode"}</TaskbarLabel>
 

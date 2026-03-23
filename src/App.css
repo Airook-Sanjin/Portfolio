@@ -146,38 +146,6 @@
 } */
 
 
-.TitleBar{
-  /* flex:0 0 auto; */
-  max-height: 26px;
-  background-color: hsla(0, 0%, 0%, 0.397);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.TitleBar img{
-  width:25px;
-  height:25px;
-}
-.TitleBar .title{
-  font-family: Ntype82;
-}
-.IconImage,.TaskbarIconImage{
-  border-radius: 10px;
-}
-.tools{
-  display: flex;
-
-}
-.tools .Btn{
-  border:none;
-  background-color: hsla(0, 0%, 100%, 0);
-}
-.tools .Btn:hover{
-  background-color: hsla(0, 0%, 100%, 0.623);
-}
-.tools .Btn.Exit:hover{
-  background-color: hsla(0, 89%, 57%, 0.76);
-}
 /* ----------------------------------- */
 
 .App-link {

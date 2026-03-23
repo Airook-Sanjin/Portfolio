@@ -5,6 +5,7 @@ function useIconDrag() {
       width:"384px",height:"100%", src:"https://airook-sanjin.github.io/AS_Calculator/"},
 
     {id: 2, title: "Resume", x: 40, y: 140, image: null, type: "resume", src:"/ErickSanjuan - Resume2026.pdf#zoom=100" },
+    {id: 3, title: "Resume", x: 40, y: 240, image: "/Profile.svg", type: "resume", src:"/ErickSanjuan - Resume2026.pdf#zoom=100" }
   ]);
 
   const [dragging, setDragging] = useState(null);

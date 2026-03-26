@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 298 298" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-1392,0)">
+        <rect id="StartKey-Light" serif:id="StartKey Light" x="1392" y="0" width="298" height="298" style="fill:none;"/>
+        <g id="StartKey-Light1" serif:id="StartKey Light">
+            <g id="StartKey-Logo" serif:id="StartKey Logo" transform="matrix(2.126584,0,0,2.126584,-1735.759383,-167.991226)">
+                <g transform="matrix(0.88288,0,0,0.882922,973.935858,-186.837489)">
+                    <path d="M616,392L616,416C616,420.415 612.415,424 608,424L584,424C579.585,424 576,420.415 576,416L576,392C576,387.585 579.585,384 584,384L608,384C612.415,384 616,387.585 616,392Z" style="stroke:white;stroke-width:0.24px;"/>
+                </g>
+                <g transform="matrix(0.88288,0,0,0.882922,1055.126007,-228.836725)">
+                    <path d="M616,392L616,416C616,420.415 612.415,424 608,424L584,424C579.585,424 576,420.415 576,416L576,392C576,387.585 579.585,384 584,384L608,384C612.415,384 616,387.585 616,392Z" style="stroke:white;stroke-width:0.24px;"/>
+                </g>
+                <g transform="matrix(0.88288,0,0,0.882922,1055.126007,-186.333446)">
+                    <path d="M616,403.999L616,404.001C616,415.039 607.038,424 596,424C584.962,424 576,415.039 576,404.001L576,403.999C576,392.961 584.962,384 596,384C607.038,384 616,392.961 616,403.999Z" style="stroke:white;stroke-width:0.24px;"/>
+                </g>
+                <g transform="matrix(0.88288,0,0,1.945504,1014.803637,-636.868195)">
+                    <path d="M616,393.076L616,414.924C616,419.933 607.038,424 596,424C584.962,424 576,419.933 576,414.924L576,393.076C576,388.067 584.962,384 596,384C607.038,384 616,388.067 616,393.076Z" style="stroke:white;stroke-width:0.15px;"/>
+                </g>
+                <g transform="matrix(0.88288,0,0,0.882922,973.935858,-228.836725)">
+                    <path d="M616,403.999L616,404.001C616,415.039 607.038,424 596,424C584.962,424 576,415.039 576,404.001L576,403.999C576,392.961 584.962,384 596,384C607.038,384 616,392.961 616,403.999Z" style="fill:rgb(255,0,0);stroke:white;stroke-width:0.24px;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

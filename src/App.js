@@ -1,38 +1,28 @@
 import "./App.css";
-
 import AppIcon from "./components/AppIcons/app-icon";
-// import TaskbarIcon from "./components/taskbar-icon";
+
 import Window from "./components/WindowCard/window-type";
-import ProfileGreetings from "./components/Greeting/profile-greeting"
-import Taskbar from "./components/Taskbar/taskbar";
-import Loading from "./components/LoadingScreen/loading-screen";
+import ProfileGreetings from "./components/Greeting/profile-greeting";
+import TaskbarApps from "./components/Taskbar/taskbar-apps";
+import TaskbarSearch from "./components/Taskbar/SearchComponent/taskbar-search";
+import Loading from "./components/LoadingComponents/loading-screen";
+import ControlDock from "./components/ControlCenter/control-dock";
 
 import useIconDrag from "./hooks/useIconDrag";
 
 import useWindowManager from "./hooks/useWindowManager";
 import { useDate } from "./hooks/returnDate";
 import { useState, useEffect } from "react";
+import useLocalStorageState from "./hooks/useLocaleStorage";
 
 function App() {
-  const [theme, setThemeState] = useState(() => {
-    const savedTheme = localStorage.getItem("theme");
-    return savedTheme ? savedTheme : "light";
-  });
+  
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setThemeState(savedTheme);
-    }
-  }, []);
+// localStorage.clear();
 
-  useEffect(() => {
-    document.documentElement.style.colorScheme = theme;
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
+  
   const toggleLorD = () => {
-    setThemeState((current) => (current === "light" ? "dark" : "light"));
+    setTheme((current) => (current === "light" ? "dark" : "light"));
   };
 
   const { apps, startAppDrag, appDrag, endAppDrag } = useIconDrag();
@@ -47,16 +37,29 @@ function App() {
     minimizeOpenWindow,
     restoreWindow,
     expandOpenWindow,
+    startWindowResize,
+    windowResize,
+    endWindowResize,
   } = useWindowManager();
+  
+
+  const [theme, setTheme] = useLocalStorageState("theme", "light");
+  
+  
+  useEffect(() => {
+    document.documentElement.style.colorScheme = theme;
+  }, [theme]);
 
   const handleDesktopMouseMove = (e) => {
     appDrag(e);
     windowDrag(e);
+    windowResize(e)
   };
 
   const handleDesktopMouseEnd = () => {
     endAppDrag();
     endWindowDrag();
+    endWindowResize()
   };
   const handleAppOpen = (app) => {
     addOpenWindow(app);
@@ -88,11 +91,18 @@ function App() {
             onMouseUp={handleDesktopMouseEnd}
             onMouseLeave={handleDesktopMouseEnd}
           >
+            <ControlDock
+              panelHeight={30}
+            >
+
+              
+            </ControlDock>
             <ProfileGreetings useDate={useDate} />
 
             {apps.map((app) => (
               <AppIcon
                 key={app.id}
+                type={app.type}
                 theme={theme}
                 appId={app.id}
                 title={app.title}
@@ -112,6 +122,7 @@ function App() {
               .map((window) => (
                 <Window
                   key={window.windowId}
+                  type={window.type}
                   theme={theme}
                   windowId={window.windowId}
                   appId={window.appId}
@@ -124,27 +135,36 @@ function App() {
                   zIndex={window.zIndex}
                   src={window.src}
                   startWindowDrag={startWindowDrag}
+                  startWindowResize={startWindowResize}
                   handleCloseWindow={handleCloseWindow}
                   minimizeOpenWindow={minimizeOpenWindow}
                   expandOpenWindow={expandOpenWindow}
                 />
               ))}
           </div>
-          
-          <Taskbar
-            items={openWindows}
-            panelHeight={68}
-            baseItemSize={50}
-            magnification={70}
-            restoreWindow={restoreWindow}
-            toggleLorD={toggleLorD}
-            theme={theme}
-          > </Taskbar>
-          
+          <div className="Taskbar">
+            <TaskbarSearch
+              appList={apps}
+              handleAppOpen={handleAppOpen}
+              panelHeight={68}
+              baseItemSize={50}
+              magnification={60}
+              toggleLorD={toggleLorD}
+              theme={theme}
+            ></TaskbarSearch>
+
+            <TaskbarApps
+              items={openWindows}
+              panelHeight={68}
+              baseItemSize={50}
+              magnification={70}
+              restoreWindow={restoreWindow}
+              toggleLorD={toggleLorD}
+              theme={theme}
+            ></TaskbarApps>
+          </div>
         </>
-        
       )}
-      
     </div>
   );
 }

@@ -1,53 +1,45 @@
-.pixel-canvas {
+
+.WindowContainer{
+  display:flex;
+  flex-direction: column;
+  border-radius:10px;
+  
+  background-color: hsla(0, 0%, 100%, 0.397);
+  backdrop-filter:blur(3px);
   position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
+  overflow: hidden;
+  opacity: 1;
+  /* !-------dont change */
+ max-width: 99.5vw;
+ max-height: 94.4vh;
+ 
+ /* !------------------- */
 }
 
-.pixel-card {
-  position: relative;
-  overflow: hidden;
-}
+
 .Program{
   height:100%;
   width: 100%;
   border:0;
 }
 
-/* .pixel-card::before {
- 
-  position: absolute;
-
-  inset: 0;
-  margin: auto;
-  aspect-ratio: 1;
-  background: radial-gradient(circle, #09090b, transparent 85%);
-  opacity: 0;
-  transition: opacity 800ms cubic-bezier(0.5, 1, 0.89, 1);
-} */
-
-/* .pixel-card:hover::before,
-.pixel-card:focus-within::before {
-  opacity: 1;
-} */
 
 .window-content {
   position: relative;
-  z-index: 2;
+  /* z-index: 2; */
   width: 100%;
   height: calc(100% - 40px);
   
 }
 .TitleBar {
   position: relative;
-  z-index: 3;
+  /* z-index: 3; */
 }
 
 .TitleBar{
   /* flex:0 0 auto; */
   max-height: 26px;
-  background-color: hsla(0, 0%, 65%, 0.397);
+  background-color: hsla(0, 0%, 0%, 0.397);
   backdrop-filter:blur(3px);
   display: flex;
   justify-content: space-between;
@@ -58,7 +50,7 @@
   height:25px;
 }
 .TitleBar .title{
-  font-family: Ntype82;
+  font-family: Ndot57;
 }
 .IconImage,.TaskbarIconImage{
   border-radius: 10px;

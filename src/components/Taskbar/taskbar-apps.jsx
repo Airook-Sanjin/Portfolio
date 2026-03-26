@@ -6,7 +6,7 @@ import {
   useSpring,
   useTransform,
   AnimatePresence,
-  correctBorderRadius,
+  // correctBorderRadius,
 } from "motion/react";
 import {
   Children,
@@ -18,7 +18,7 @@ import {
 } from "react";
 import PropTypes from "prop-types";
 
-import "./Taskbar.css";
+import "./TaskbarApps.css";
 
 function TaskbarItem({
   children,
@@ -29,7 +29,7 @@ function TaskbarItem({
   distance,
   magnification,
   baseItemSize,
-  toggleLorD,
+  
 }) {
   const ref = useRef(null);
   const ishovered = useMotionValue(0);
@@ -131,7 +131,7 @@ function TaskbarIcon({
   );
 }
 
-export default function Taskbar({
+export default function TaskbarApps({
   items,
   restoreWindow,
   theme,
@@ -158,10 +158,13 @@ export default function Taskbar({
   theme==="light"? Folder = "light": Folder="dark"
 
   return (
+    
+    
     <motion.div
       style={{ height, scrollbarWidth: "none" }}
-      className="taskbar-outer"
+      className="taskbarAppsOuter"
     >
+
       <motion.div
         onMouseMove={({ clientX }) => {
           ishovered.set(1);
@@ -171,7 +174,7 @@ export default function Taskbar({
           ishovered.set(0);
           mouseX.set(Infinity);
         }}
-        className={`taskbar-panel ${className}`}
+        className={`taskbarApps-panel ${className}`}
         style={{ height: panelHeight }}
         role="toolbar"
         aria-label="Application dock"
@@ -221,5 +224,6 @@ export default function Taskbar({
         </TaskbarItem>
       </motion.div>
     </motion.div>
+   
   );
 }

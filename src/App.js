@@ -14,10 +14,9 @@ import useWindowManager from "./hooks/useWindowManager";
 import { useDate } from "./hooks/returnDate";
 import { useState, useEffect } from "react";
 import useLocalStorageState from "./hooks/useLocaleStorage";
+import { AnimatePresence } from "motion/react";
 
 function App() {
-  
-
 // localStorage.clear();
 
   
@@ -62,6 +61,8 @@ function App() {
     endWindowResize()
   };
   const handleAppOpen = (app) => {
+
+    
     addOpenWindow(app);
   };
   const handleCloseWindow = (windowId) => {
@@ -92,10 +93,11 @@ function App() {
             onMouseLeave={handleDesktopMouseEnd}
           >
             <ControlDock
-              panelHeight={30}
+              panelHeight={40}
+              useDate={useDate}
             >
 
-              
+
             </ControlDock>
             <ProfileGreetings useDate={useDate} />
 
@@ -120,6 +122,7 @@ function App() {
             {openWindows
               .filter((window) => !window.isMinimized)
               .map((window) => (
+                <AnimatePresence>
                 <Window
                   key={window.windowId}
                   type={window.type}
@@ -140,6 +143,7 @@ function App() {
                   minimizeOpenWindow={minimizeOpenWindow}
                   expandOpenWindow={expandOpenWindow}
                 />
+                </AnimatePresence>
               ))}
           </div>
           <div className="Taskbar">

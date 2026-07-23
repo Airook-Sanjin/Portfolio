@@ -4,6 +4,10 @@ import ProgramEmbed from "./app-program";
 import { appComponents } from "../../config/appComponents";
 import { useState, useEffect, useRef } from "react";
 import "./Window.css";
+import {
+  motion,
+  
+} from "motion/react";
 
 // !---------------------
 
@@ -36,7 +40,16 @@ export default function Window({
   theme === "light" ? (Folder = "light") : (Folder = "dark");
 
   return (
-    <div
+    
+    <motion.div
+    onani
+      initial={{ opacity: 0, scale: 0.9, y: y, x:x }}
+		  animate={{ opacity: 1, scale: 1, y: 0 }}
+		  exit={{ opacity: 0, scale: 0.9 }}
+		  transition={{ type: "spring", 
+			stiffness: 300, // higher = snappier
+			damping: 25, // higher = less bounce 
+			}}
       className={className}
       src={src}
       style={{
@@ -188,7 +201,7 @@ export default function Window({
           backgroundColor:"orange",
         }}
       ></div>
-    </div>
+    </motion.div>
   );
 }
 Window.propTypes = {

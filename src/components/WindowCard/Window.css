@@ -1,5 +1,5 @@
 
-.WindowContainer{
+.expand .WindowContainer{
   display:flex;
   flex-direction: column;
   border-radius:10px;
@@ -9,6 +9,9 @@
   position: absolute;
   overflow: hidden;
   opacity: 1;
+
+  transform: scale(1);
+  transition: opacity 200ms 100ms cubic-bezier(0.0, 0.0, 0.2, 1);;
   /* !-------dont change */
  max-width: 99.5vw;
  max-height: 94.4vh;

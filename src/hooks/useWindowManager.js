@@ -16,6 +16,7 @@ function useWindowManager() {
   };
 
   const addOpenWindow = (app) => {
+    
     const existingWindow = openWindows.find((w) => w.appId === app.id);
     if (!existingWindow) {
       counterId.current = counterId.current + 1;

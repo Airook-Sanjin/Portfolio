@@ -1,0 +1,95 @@
+
+.taskbarSearchOuter{
+  margin: 0 0.5rem;
+  display: flex;
+  max-height:100% ;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  align-items: flex-start;
+  z-index: 3;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  /* top: 95.2vh; */
+  min-height: 47px;
+  pointer-events: none;
+}
+
+.taskbarSearch-panel{
+  position: absolute;
+  bottom: 0.5rem;
+  left: 20%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: fit-content;
+  height: fit-content;
+  
+  border-radius: 1rem;
+  background-color: var(--panel-color);
+  border: 1px solid var(--text-color);
+  padding: 0 0.5rem 0.5rem;
+  pointer-events: auto;
+}
+
+.searchbar-item{
+  position: relative;
+  display: inline-flex;
+  
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  background-color: var(--icon-background);
+  border: 1px solid #222;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  outline: none; 
+}
+.SearchResult-icon{
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.taskbar-search-resultList{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    gap:1rem;
+    
+}
+.SearchResult-label{
+  /* position: absolute; */
+  /* left: 50%; */
+  width: fit-content;
+  white-space: pre;
+  border-radius: 0.375rem;
+  /* border: 1px solid #222; */
+  /* background-color: #06001034; */
+  padding: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-color);
+  transform: translateX(14%);
+}
+
+.taskbar-search-input{
+    justify-self: baseline;
+    background-color: var(--panel-color);
+    border-radius: 10px;
+    padding:5px;
+    font-size: medium;
+    width: 100%;
+    height: 3rem;
+    border: none;
+    color:var(--text-color)
+}
+.taskbar-search-input:focus{
+    outline:none;
+    
+
+}

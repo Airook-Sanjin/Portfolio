@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# 🖥️ NothingOS-Inspired Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, interactive portfolio designed as a desktop-like experience inspired by the minimalist aesthetic of Nothing OS. This project reimagines a personal portfolio as a fully functional UI environment, complete with draggable apps, window management, and a dynamic taskbar.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Design Philosophy
 
-### `npm start`
+This project focuses on:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Minimalism** — Inspired by Nothing OS clean design
+- **Interactivity** — Making a portfolio feel like a system, not a page
+- **Scalability** — Component-driven architecture for easy expansion
+- **User Experience** — Smooth animations and intuitive controls
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React** (Functional Components + Hooks)
+- **Framer Motion** (`motion/react`) for animations
+- **CSS Variables** + `light-dark()` for theming
+- **LocalStorage** for persistence
+- **Custom Hooks**
+  - `useWindowManager`
+  - `useIconDrag`
+  - `useDate`
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 How It Works
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Window Management
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Handles:
 
-### `npm run eject`
+- opening apps
+- tracking active windows
+- minimizing/restoring
+- z-index stacking
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Drag System
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Desktop icons and windows use shared drag logic
+- Mouse events propagate through the desktop container
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Theme System
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Theme stored in `localStorage`
+- Applied via:
 
-## Learn More
+  ```js
+  document.documentElement.style.colorScheme = theme;
+  ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- CSS uses:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  ```css
+  light-dark(lightValue, darkValue)
+  ```
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🔮 Future Improvements
 
-### Analyzing the Bundle Size
+- 🔊 Sound effects (OS-like feedback)
+- 🧠 App state persistence (restore sessions)
+- 🎞️ Window snapping / tiling system
+- 📂 File explorer simulation
+- 🌐 Real project apps (browser, terminal, etc.)
+- 🎨 SVG-based adaptive icons (theme-aware)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📸 Inspiration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Nothing OS UI/UX
+- macOS Dock interactions
+- Desktop operating systems (Windows / Linux environments)
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 👤 Author
 
-### Deployment
+Built by **Erick Sanjuan**
+Computer Software Engineering Technology Student
+Focused on front-end systems, UI/UX, and interactive web applications
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 💡 Final Thoughts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project turns a portfolio into an **experience** — blending creativity, technical skill, and design thinking into a system users can explore.
+
+---
+
+⭐ If you like this project, feel free to star it or share feedback!

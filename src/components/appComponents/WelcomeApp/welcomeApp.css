@@ -1,0 +1,22 @@
+.WindowAppContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.welcome-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap:1rem;
+}
+.welcome-print{
+    width:60%;
+display: flex;
+flex-direction: column;
+text-align: start;
+}
+.icon{
+    width: 100%;
+}

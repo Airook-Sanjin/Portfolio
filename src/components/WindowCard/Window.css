@@ -1,0 +1,74 @@
+
+.expand .WindowContainer{
+  display:flex;
+  flex-direction: column;
+  border-radius:10px;
+  
+  background-color: hsla(0, 0%, 100%, 0.397);
+  backdrop-filter:blur(3px);
+  position: absolute;
+  overflow: hidden;
+  opacity: 1;
+
+  transform: scale(1);
+  transition: opacity 200ms 100ms cubic-bezier(0.0, 0.0, 0.2, 1);;
+  /* !-------dont change */
+ max-width: 99.5vw;
+ max-height: 94.4vh;
+ 
+ /* !------------------- */
+}
+
+
+.Program{
+  height:100%;
+  width: 100%;
+  border:0;
+}
+
+
+.window-content {
+  position: relative;
+  /* z-index: 2; */
+  width: 100%;
+  height: calc(100% - 40px);
+  
+}
+.TitleBar {
+  position: relative;
+  /* z-index: 3; */
+}
+
+.TitleBar{
+  /* flex:0 0 auto; */
+  max-height: 26px;
+  background-color: hsla(0, 0%, 0%, 0.397);
+  backdrop-filter:blur(3px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.TitleBar img{
+  width:25px;
+  height:25px;
+}
+.TitleBar .title{
+  font-family: Ndot57;
+}
+.IconImage,.TaskbarIconImage{
+  border-radius: 10px;
+}
+.tools{
+  display: flex;
+
+}
+.tools .Btn{
+  border:none;
+  background-color: hsla(0, 0%, 100%, 0);
+}
+.tools .Btn:hover{
+  background-color: hsla(0, 0%, 100%, 0.623);
+}
+.tools .Btn.Exit:hover{
+  background-color: hsla(0, 89%, 57%, 0.76);
+}

@@ -1,5 +1,5 @@
 import "./taskbarSearch.css";
-import { initApps } from "../../../config/apps";
+import {APP_REGISTRY} from "../../../Shared/apps";
 import { ClickAwayListener } from "@mui/material";
 
 import {
@@ -37,7 +37,7 @@ function SearchResultItem({
       top: 25,
       height: baseItemSize,
     };
-    return val - (rect.top + rect.height/2);
+    return val - (rect.top + rect.height / 2);
   });
 
   const targetSize = useTransform(
@@ -50,7 +50,7 @@ function SearchResultItem({
   return (
     <motion.div
       ref={ref}
-      style={{  height: size }}
+      style={{ height: size }}
       onHoverStart={() => ishovered.set(1)}
       onHoverEnd={() => ishovered.set(0)}
       onFocus={() => ishovered.set(1)}
@@ -65,18 +65,15 @@ function SearchResultItem({
         cloneElement(child, { ishovered, size }),
       )}
     </motion.div>
-  );         
+  );
 }
 
-function SearchResultLabel({children, className="",...rest}){
-    return(
-        <motion.div
-        className={`SearchResult-label ${className}`}
-          role="tooltip"
-           >
-            {children}
-        </motion.div>
-    );
+function SearchResultLabel({ children, className = "", ...rest }) {
+  return (
+    <motion.div className={`SearchResult-label ${className}`} role="tooltip">
+      {children}
+    </motion.div>
+  );
 }
 
 function SearchResultIcon({
@@ -148,79 +145,76 @@ export default function TaskbarSearch({
     });
     setApps(filterBySearch);
   }
-  function handleClickAway(){
+  function handleClickAway() {
     setSearchVal("");
-    
+
     ishovered.set(0);
   }
 
   return (
-    <ClickAwayListener 
-    onClickAway={()=>
-        handleClickAway()
-    }>
-    <motion.div
-      style={{ height, scrollbarWidth: "none" }}
-      className="taskbarSearchOuter"
-    >
+    <ClickAwayListener onClickAway={() => handleClickAway()}>
       <motion.div
-        className={`taskbarSearch-panel ${className}`}
-        style={{ height: height }}
-        role="Searchtoolbar"
-        aria-label="Search dock"
+        style={{ height, scrollbarWidth: "none" }}
+        className="taskbarSearchOuter"
       >
-        <motion.div className="taskbar-search-resultList"
-        onMouseMove={({ clientY }) => {
-          mouseY.set(clientY);
-        }}
-        onMouseLeave={() => {
-          mouseY.set(Infinity);
-        }}
+        <motion.div
+          className={`taskbarSearch-panel ${className}`}
+          style={{ height: height }}
+          role="Searchtoolbar"
+          aria-label="Search dock"
         >
-          {searchVal.trim() !== ""
-            ? apps.map((app) => {
-                ishovered.set(1);
-                return (
-                  <SearchResultItem
-                  
-                    key={app.id}
-                    onDoubleClick={() => handleAppOpen(app)}
-                    className={app.title}
-                    mouseY={mouseY}
-                    spring={spring}
-                    distance={distance}
-                    magnification={magnification}
-                    baseItemSize={baseItemSize}
-                  >
-                    <SearchResultIcon
-                      style={{
-                        backgroundImage: app.image
-                          ? `url(/appIcons/${Folder + app.image})`
-                          : undefined,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                    />
-                    <SearchResultLabel>{app.title}</SearchResultLabel>
-                  </SearchResultItem>
-                );
-              })
-            : ishovered.set(0)}
+          <motion.div
+            className="taskbar-search-resultList"
+            onMouseMove={({ clientY }) => {
+              mouseY.set(clientY);
+            }}
+            onMouseLeave={() => {
+              mouseY.set(Infinity);
+            }}
+          >
+            {searchVal.trim() !== ""
+              ? APP_REGISTRY.map((app) => {
+                  ishovered.set(1);
+                  return (
+                    <SearchResultItem
+                      key={app.id}
+                      onDoubleClick={() => handleAppOpen(app)}
+                      className={app.title}
+                      mouseY={mouseY}
+                      spring={spring}
+                      distance={distance}
+                      magnification={magnification}
+                      baseItemSize={baseItemSize}
+                    >
+                      <SearchResultIcon
+                        style={{
+                          backgroundImage: app.image
+                            ? app.image
+                            : undefined,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }}
+                      />
+                      <SearchResultLabel>{app.title}</SearchResultLabel>
+                    </SearchResultItem>
+                  );
+                })
+              : ishovered.set(0)}
+          </motion.div>
+          <input
+            className="taskbar-search-input"
+            role="search"
+            type="text"
+            placeholder="Search"
+            value={searchVal}
+            onChange={(e) => {
+              const value = e.target.value;
+              setSearchVal(value);
+              handleSearchClick(value);
+            }}
+          ></input>
         </motion.div>
-        <input
-          className="taskbar-search-input"
-          role="search"
-          type="text"
-          placeholder="Search"
-          value={searchVal}
-          onChange={(e) => {
-            const value = e.target.value;
-            setSearchVal(value);
-            handleSearchClick(value);
-          }}
-        ></input>
       </motion.div>
-    </motion.div>
     </ClickAwayListener>
   );
 }

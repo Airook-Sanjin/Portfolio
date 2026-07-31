@@ -1,25 +1,25 @@
 import "./App.css";
 import AppIcon from "./components/AppIcons/app-icon";
 
-import Window from "./components/WindowCard/window-type";
-import ProfileGreetings from "./components/Greeting/profile-greeting";
-import TaskbarApps from "./components/Taskbar/taskbar-apps";
-import TaskbarSearch from "./components/Taskbar/SearchComponent/taskbar-search";
-import Loading from "./components/LoadingComponents/loading-screen";
+import Window from "./components/desktop/WindowCard/window-type";
+import ProfileGreetings from "./components/desktop/Greeting/profile-greeting";
+import TaskbarApps from "./components/desktop/Taskbar/taskbar-apps";
+import TaskbarSearch from "./components/desktop/Taskbar/SearchComponent/taskbar-search";
+import StartMenu from "./components/desktop/Taskbar/StartMenuComponent/start-menu";
+import Loading from "./components/desktop/LoadingComponents/loading-screen";
 import ControlDock from "./components/ControlCenter/control-dock";
 
-import useIconDrag from "./hooks/useIconDrag";
+import useIconDrag from "./components/desktop/hooks/useIconDrag";
 
-import useWindowManager from "./hooks/useWindowManager";
-import { useDate } from "./hooks/returnDate";
+import useWindowManager from "./components/desktop/hooks/useWindowManager";
+import { useDate } from "./components/desktop/hooks/returnDate";
 import { useState, useEffect } from "react";
-import useLocalStorageState from "./hooks/useLocaleStorage";
+import useLocalStorageState from "./components/desktop/hooks/useLocaleStorage";
 import { AnimatePresence } from "motion/react";
 
 function App() {
-// localStorage.clear();
+  // localStorage.clear();
 
-  
   const toggleLorD = () => {
     setTheme((current) => (current === "light" ? "dark" : "light"));
   };
@@ -40,11 +40,9 @@ function App() {
     windowResize,
     endWindowResize,
   } = useWindowManager();
-  
 
   const [theme, setTheme] = useLocalStorageState("theme", "light");
-  
-  
+
   useEffect(() => {
     document.documentElement.style.colorScheme = theme;
   }, [theme]);
@@ -52,17 +50,15 @@ function App() {
   const handleDesktopMouseMove = (e) => {
     appDrag(e);
     windowDrag(e);
-    windowResize(e)
+    windowResize(e);
   };
 
   const handleDesktopMouseEnd = () => {
     endAppDrag();
     endWindowDrag();
-    endWindowResize()
+    endWindowResize();
   };
   const handleAppOpen = (app) => {
-
-    
     addOpenWindow(app);
   };
   const handleCloseWindow = (windowId) => {
@@ -92,13 +88,7 @@ function App() {
             onMouseUp={handleDesktopMouseEnd}
             onMouseLeave={handleDesktopMouseEnd}
           >
-            <ControlDock
-              panelHeight={40}
-              useDate={useDate}
-            >
-
-
-            </ControlDock>
+            <ControlDock panelHeight={40} useDate={useDate}></ControlDock>
             <ProfileGreetings useDate={useDate} />
 
             {apps.map((app) => (
@@ -123,30 +113,32 @@ function App() {
               .filter((window) => !window.isMinimized)
               .map((window) => (
                 <AnimatePresence>
-                <Window
-                  key={window.windowId}
-                  type={window.type}
-                  theme={theme}
-                  windowId={window.windowId}
-                  appId={window.appId}
-                  label={window.label}
-                  icon={window.icon}
-                  x={window.x}
-                  y={window.y}
-                  width={window.width}
-                  height={window.height}
-                  zIndex={window.zIndex}
-                  src={window.src}
-                  startWindowDrag={startWindowDrag}
-                  startWindowResize={startWindowResize}
-                  handleCloseWindow={handleCloseWindow}
-                  minimizeOpenWindow={minimizeOpenWindow}
-                  expandOpenWindow={expandOpenWindow}
-                />
+                  <Window
+                    key={window.windowId}
+                    type={window.type}
+                    theme={theme}
+                    windowId={window.windowId}
+                    appId={window.appId}
+                    label={window.label}
+                    icon={window.icon}
+                    x={window.x}
+                    y={window.y}
+                    width={window.width}
+                    height={window.height}
+                    zIndex={window.zIndex}
+                    src={window.src}
+                    startWindowDrag={startWindowDrag}
+                    startWindowResize={startWindowResize}
+                    handleCloseWindow={handleCloseWindow}
+                    minimizeOpenWindow={minimizeOpenWindow}
+                    expandOpenWindow={expandOpenWindow}
+                  />
                 </AnimatePresence>
               ))}
           </div>
           <div className="Taskbar">
+            <StartMenu></StartMenu>
+
             <TaskbarSearch
               appList={apps}
               handleAppOpen={handleAppOpen}

@@ -1,0 +1,17 @@
+.boxOuter{
+    position: absolute;
+    bottom: 0.5rem;
+    left: 5%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+    width: 68px;
+    height:68px;
+    gap: 1rem;
+    border-radius: 1rem;
+    background-color: var(--panel-color);
+    border: 1px solid var(--text-color);
+    padding: 0 0.5rem 0.5rem;
+    pointer-events: auto;
+    background-color: blanchedalmond;
+}

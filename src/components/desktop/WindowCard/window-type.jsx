@@ -1,13 +1,10 @@
 import PropTypes from "prop-types";
 import { Minus, X, Maximize } from "lucide-react";
 import ProgramEmbed from "./app-program";
-import { appComponents } from "../../config/appComponents";
+import { appComponents } from "../../../config/appComponents";
 import { useState, useEffect, useRef } from "react";
 import "./Window.css";
-import {
-  motion,
-  
-} from "motion/react";
+import { motion } from "motion/react";
 
 // !---------------------
 
@@ -40,16 +37,16 @@ export default function Window({
   theme === "light" ? (Folder = "light") : (Folder = "dark");
 
   return (
-    
     <motion.div
-    onani
-      initial={{ opacity: 0, scale: 0.9, y: y, x:x }}
-		  animate={{ opacity: 1, scale: 1, y: 0 }}
-		  exit={{ opacity: 0, scale: 0.9 }}
-		  transition={{ type: "spring", 
-			stiffness: 300, // higher = snappier
-			damping: 25, // higher = less bounce 
-			}}
+      
+      initial={{ opacity: 0, scale: 0.9, y: y, x: x }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{
+        type: "spring",
+        stiffness: 300, // higher = snappier
+        damping: 25, // higher = less bounce
+      }}
       className={className}
       src={src}
       style={{
@@ -57,8 +54,8 @@ export default function Window({
         zIndex,
         left: x,
         top: y,
-        width:width,
-        height:height,
+        width: width,
+        height: height,
         userSelect: "none",
       }}
       {...props}
@@ -67,7 +64,7 @@ export default function Window({
         className="TitleBar"
         onMouseDown={(e) => startWindowDrag(e, windowId)}
       >
-        <img src={"/appIcons/" + Folder + icon} alt="icon" size="1" />
+        {icon}
         <p className="title">{label}</p>
         <div className="tools">
           <button
@@ -101,7 +98,7 @@ export default function Window({
         ) : null}
       </div>
       <div
-      onMouseDown={(e)=>startWindowResize(e,windowId,"E")}
+        onMouseDown={(e) => startWindowResize(e, windowId, "E")}
         style={{
           position: "absolute",
           top: 4,
@@ -109,11 +106,11 @@ export default function Window({
           width: 6,
           bottom: 4,
           cursor: "ew-resize",
-          backgroundColor:"blue",
+          backgroundColor: "blue",
         }}
       ></div>
       <div
-      onMouseDown={(e)=>startWindowResize(e,windowId,"S")}
+        onMouseDown={(e) => startWindowResize(e, windowId, "S")}
         style={{
           position: "absolute",
           left: 4,
@@ -121,11 +118,11 @@ export default function Window({
           height: 6,
           right: 4,
           cursor: "ns-resize",
-          backgroundColor:"red",
+          backgroundColor: "red",
         }}
       ></div>
       <div
-      onMouseDown={(e)=>startWindowResize(e,windowId,"W")}
+        onMouseDown={(e) => startWindowResize(e, windowId, "W")}
         style={{
           position: "absolute",
           top: 4,
@@ -133,72 +130,71 @@ export default function Window({
           width: 6,
           bottom: 4,
           cursor: "ew-resize",
-          backgroundColor:"lime",
+          backgroundColor: "lime",
         }}
       ></div>
       <div
-      onMouseDown={(e)=>startWindowResize(e,windowId,"N")}
+        onMouseDown={(e) => startWindowResize(e, windowId, "N")}
         style={{
           position: "absolute",
           left: 4,
           top: -3,
-          right:4,
+          right: 4,
           height: 6,
-      
+
           cursor: "ns-resize",
-          backgroundColor:"lightblue",
+          backgroundColor: "lightblue",
         }}
       ></div>
       <div
-      onMouseDown={(e)=>startWindowResize(e,windowId,"SE")}
+        onMouseDown={(e) => startWindowResize(e, windowId, "SE")}
         style={{
           position: "absolute",
           right: -3,
           bottom: -3,
           width: 10,
-          height:10,
+          height: 10,
           cursor: "nwse-resize",
-          backgroundColor:"pink",
+          backgroundColor: "pink",
         }}
       ></div>
       <div
-      onMouseDown={(e)=>startWindowResize(e,windowId,"SW")}
+        onMouseDown={(e) => startWindowResize(e, windowId, "SW")}
         style={{
           position: "absolute",
           left: -3,
           bottom: -3,
           width: 10,
-          height:10,
-          
+          height: 10,
+
           cursor: "nesw-resize",
-          backgroundColor:"purple",
+          backgroundColor: "purple",
         }}
       ></div>
       <div
-      onMouseDown={(e)=>startWindowResize(e,windowId,"NE")}
+        onMouseDown={(e) => startWindowResize(e, windowId, "NE")}
         style={{
           position: "absolute",
-          backgroundColor:"green",
+          backgroundColor: "green",
           right: -3,
           top: -3,
           width: 10,
-          height:10,
-          
+          height: 10,
+
           cursor: "nesw-resize",
-          
         }}
       ></div>
       <div
-      onMouseDown={(e)=>startWindowResize(e,windowId,"NW")}
+        onMouseDown={(e) => startWindowResize(e, windowId, "NW")}
         style={{
           position: "absolute",
           left: -3,
           top: -3,
           width: 10,
-          height:10,
+          height: 10,
           bottom: 10,
           cursor: "nwse-resize",
-          backgroundColor:"orange",
+          backgroundColor: "orange",
         }}
       ></div>
     </motion.div>

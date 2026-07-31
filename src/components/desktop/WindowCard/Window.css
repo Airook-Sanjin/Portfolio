@@ -4,7 +4,7 @@
   flex-direction: column;
   border-radius:10px;
   
-  background-color: hsla(0, 0%, 100%, 0.397);
+  
   backdrop-filter:blur(3px);
   position: absolute;
   overflow: hidden;
@@ -32,6 +32,7 @@
   /* z-index: 2; */
   width: 100%;
   height: calc(100% - 40px);
+  background-color: var(--background-color);
   
 }
 .TitleBar {

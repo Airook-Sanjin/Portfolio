@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { initApps } from "../config/apps";
+import { APP_REGISTRY } from "../../Shared/apps";
 function useIconDrag() {
-  const [apps,setApps] = useState(initApps)
+  const [apps, setApps] = useState(APP_REGISTRY);
 
   const [dragging, setDragging] = useState(null);
   //  guide: dragging = {id,offestX,offsetY}

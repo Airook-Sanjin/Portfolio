@@ -120,12 +120,12 @@ function TaskbarIcon({
     <motion.div
       className={`taskbar-icon ${className}`}
       style={{ width: size, height: size,
-        backgroundImage: image ? `url(${image})` : undefined,
         backgroundSize: "cover",
         backgroundPosition: "center",
         ...style }}
       {...props}
     >
+      {image}
       {children}
     </motion.div>
   );
@@ -191,8 +191,9 @@ export default function TaskbarApps({
             baseItemSize={baseItemSize}
           >
             <TaskbarIcon
+            image={item.icon}
               style={{
-                backgroundImage: item.icon ? `url(/appIcons/${Folder+item.icon})` : undefined,
+                
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 
@@ -203,7 +204,6 @@ export default function TaskbarApps({
         ))}
         <TaskbarItem
         key={0}
-        
         className={"light-dark"}
         mouseX={mouseX}
         spring={spring}
@@ -215,7 +215,7 @@ export default function TaskbarApps({
         >
           <TaskbarIcon
           theme={theme}
-          image={theme==="light" ? "/appIcons/light/theme.svg" : "/appIcons/dark/theme.svg"}
+          image={theme==="light" ? "../../../../public/icons/light/theme.svg" : "../../../../public/icons/dark/theme.svg"}
           />
           <TaskbarLabel theme={theme}>{theme=== "light" ? "Light Mode" : "Dark Mode"}</TaskbarLabel>
 

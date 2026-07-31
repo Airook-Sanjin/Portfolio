@@ -1,5 +1,5 @@
 import "./controlDock.css";
-import ProfileGreetings from "../Greeting/profile-greeting";
+import ProfileGreetings from "../desktop/Greeting/profile-greeting";
 
 export default function ControlDock({
   theme,

@@ -1,15 +1,22 @@
+
 .WindowAppContainer{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    background-color: --background-color;
 }
+
 .welcome-body{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     gap:1rem;
+    
+}
+.window-content{
+    
+    overflow: hidden;
 }
 .welcome-print{
     width:60%;

@@ -32,13 +32,15 @@ export default function AppIcon({
         <div
           className="IconImage"
           style={{
-            backgroundImage: image ? `url(/appIcons/${Folder + image})` : `url(/appIcons/ApplicationIcon.webp)`,
+            
             width: typeof size === "number" ? `${size}px` : size,
             height: typeof size === "number" ? `${size}px` : size,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-        />
+        >
+          {image}
+        </div>
       
 
       <p className="IconLabel">{title}</p>

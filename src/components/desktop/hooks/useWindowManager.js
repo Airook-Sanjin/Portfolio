@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-import "../components/WindowCard/Window.css";
+import "..//WindowCard/Window.css";
 import useLocalStorageState from "./useLocaleStorage";
 
 // !--------------------TEST------------------------

@@ -1,0 +1,16 @@
+.cardContainer{
+    display: flex;
+    background-color: rgb(170, 68, 68);
+}
+.cardPrint{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start ;
+}
+.cardPrint p, .cardPrint h4 {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.cardPrint p{
+    font-size: 15px;
+}

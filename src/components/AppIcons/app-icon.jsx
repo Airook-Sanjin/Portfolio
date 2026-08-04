@@ -17,8 +17,6 @@ export default function AppIcon({
   y = 0,
   ...props
 }) {
-  let Folder;
-  theme==="light"? Folder = "light": Folder="dark"
   return (
     <div
       color="white"

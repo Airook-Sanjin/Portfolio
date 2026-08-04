@@ -5,6 +5,8 @@ import { appComponents } from "../../../config/appComponents";
 import { useState, useEffect, useRef } from "react";
 import "./Window.css";
 import { motion } from "motion/react";
+import { getIconImage } from "../../../utils/icons";
+import { APP_REGISTRY } from "../../Shared/apps";
 
 // !---------------------
 
@@ -20,8 +22,10 @@ export default function Window({
   src,
   x = 0,
   y = 0,
-  width = window.innerHeight * 0.5,
-  height = window.innerHeight * 0.6,
+  // width = window.innerHeight * 0.5,
+  // height = window.innerHeight * 0.6,
+  width ,
+  height,
   zIndex = 0,
   startWindowDrag,
   handleCloseWindow,
@@ -32,6 +36,7 @@ export default function Window({
   ...props
 }) {
   const AppComponent = appComponents[label];
+  const app = APP_REGISTRY.find(a => a.id === appId )
 
   let Folder;
   theme === "light" ? (Folder = "light") : (Folder = "dark");
@@ -64,7 +69,7 @@ export default function Window({
         className="TitleBar"
         onMouseDown={(e) => startWindowDrag(e, windowId)}
       >
-        {icon}
+        {getIconImage(appId,theme)}
         <p className="title">{label}</p>
         <div className="tools">
           <button

@@ -16,6 +16,8 @@ import { useDate } from "./components/desktop/hooks/returnDate";
 import { useState, useEffect } from "react";
 import useLocalStorageState from "./components/desktop/hooks/useLocaleStorage";
 import { AnimatePresence } from "motion/react";
+import { Icons } from "./components/Shared/icons";
+import {getIconImage} from "./utils/icons"
 
 function App() {
   // localStorage.clear();
@@ -76,6 +78,7 @@ function App() {
     }, 5000);
   }, []);
 
+
   return (
     <div className="App">
       {isLoading ? (
@@ -95,10 +98,9 @@ function App() {
               <AppIcon
                 key={app.id}
                 type={app.type}
-                theme={theme}
                 appId={app.id}
                 title={app.title}
-                image={app.image}
+                image={getIconImage(app.id,theme)}
                 width={app.width}
                 height={app.height}
                 src={app.src}
@@ -120,7 +122,6 @@ function App() {
                     windowId={window.windowId}
                     appId={window.appId}
                     label={window.label}
-                    icon={window.icon}
                     x={window.x}
                     y={window.y}
                     width={window.width}
@@ -137,7 +138,7 @@ function App() {
               ))}
           </div>
           <div className="Taskbar">
-            <StartMenu></StartMenu>
+            {/* <StartMenu></StartMenu> */}
 
             <TaskbarSearch
               appList={apps}

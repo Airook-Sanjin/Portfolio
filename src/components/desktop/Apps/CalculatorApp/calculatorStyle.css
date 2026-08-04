@@ -1,0 +1,121 @@
+
+
+@font-face {
+  font-family: Ndot57;
+  src: url("/public/fonts/Ndot57-Regular.otf");
+}
+@font-face {
+  font-family: Ntype82;
+  src: url("/public/fonts/NType82-Regular.otf");
+}
+@font-face {
+  font-family: Inter-reg;
+  src: url("/public/fonts/Inter-Regular.ttf");
+}
+body{
+    background-color: var(--background-color);
+}
+.container{
+    
+    height:100%;
+    
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    color: var(--text-color);
+    font-family: Ndot57;
+}
+
+.screen{
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items: end;
+    background-color: hsla(0, 0%, 47%, 0);
+    height: 30%;
+    color: var(--text-color);
+    font-family: Ndot57;
+    font-size: 100px;
+}
+
+.buttons{
+    height: 66%;
+    /* width: 100vw; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:.50rem;
+    padding:1rem; 
+}
+.buttons button{
+    min-width: 4rem;
+    min-height: 4rem;
+    width:100%;
+    max-width: 16rem;
+    max-height: 16rem;
+    border:none;
+    font-family: Ndot57;
+    font-size: 50px;
+    /* font-weight: 600; */
+    background-color: var(--button);
+    border-radius: 60%;
+    color:var(--button-text);
+}
+
+.rows{
+    display: flex;
+    flex:1 1;
+    width: 100%;
+    gap:.20rem;
+}
+.rows .operator{
+    background-color: hsl(0, 100%, 45%);
+}
+.rows .operator:hover{
+    background-color: hsl(0, 100%, 35%);
+}
+.rows .operator:active{
+    background-color: hsl(0, 100%, 55%);
+}
+
+button:hover{
+    background-color: hsl(105, 2%, 45%,.5);
+}
+button:active{
+    background-color: hsl(0, 0%, 50%);
+}
+
+/* @media (min-width: 1024px) {
+    .container{
+    display:flex ;
+    flex-direction: column;
+    margin:  1.25rem auto;
+    width: 40svh;
+    height:100%;
+    border-radius: 20px;
+    
+    border: solid .15rem hsl(0, 0%, 36%,.5);
+    overflow: hidden;
+    padding: 1rem;
+    gap: 1rem;
+}
+.screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    font-size: 25px;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap:.20rem;
+}
+    .buttons button{
+        width: 7rem;
+        height: 7rem;
+    }
+} */

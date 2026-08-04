@@ -7,14 +7,17 @@ export const APP_REGISTRY = [
     x: 40,
     y: 40,
     image: Icons.calculator,
-    type: "external",
-    // width: "384px",
+    type: "internal",
+    width: 422,
+    height:690,
+    minWidth:422,
+    minHeight:690,
     // height:1,
     
   },
 
   {
-    id: "resume",
+    id: "profile",
     iconLabel: "Resume",
     title: "Resume",
     x: 40,
@@ -29,7 +32,7 @@ export const APP_REGISTRY = [
     title: "Welcome",
     x: 40,
     y: 540,
-    image: "/Profile.svg",
+    image: Icons.profile,
     type: "internal",
    
   },
@@ -39,7 +42,7 @@ export const APP_REGISTRY = [
     title: "Setting",
     x: 40,
     y: 340,
-    image: "/Profile.svg",
+    image: Icons.profile,
     type: "internal",
     
   },

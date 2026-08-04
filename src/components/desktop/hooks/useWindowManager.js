@@ -16,7 +16,8 @@ function useWindowManager() {
   };
 
   const addOpenWindow = (app) => {
-    
+    let width = app.width || Math.round(window.innerWidth * .6);
+    let height = app.height ||Math.round(window.innerHeight * .5);
     const existingWindow = openWindows.find((w) => w.appId === app.id);
     if (!existingWindow) {
       counterId.current = counterId.current + 1;
@@ -29,10 +30,11 @@ function useWindowManager() {
           windowId: counterId.current,
           label: app.title,
           appId: app.id,
-          icon: app.image,
           src: app.src,
-          width:window.innerWidth * .6,
-          height:window.innerHeight * .5,
+          width:width,
+          height:height,
+          minHeight: app.minHeight || 200,
+          minWidth: app.minWidth || 200,
           x: 50,
           y: 50,
           zIndex: topZ.current,
@@ -167,8 +169,12 @@ function useWindowManager() {
     let width = right - left;
     let height = bottom - top;
 
-    const minWidth =200;
-    const minHeight =200;
+    const target = openWindows.find(w => w.windowId === resize.id);
+    if(!target) return;
+
+
+    const minWidth = target.minWidth || 200;
+    const minHeight = target.minHeight || 200;
 
     if(width<minWidth){
       if(side.includes("W")){

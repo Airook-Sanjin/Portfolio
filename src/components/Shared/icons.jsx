@@ -21,9 +21,11 @@
     profile: imgLightIcon("profile"),
     start:imgLightIcon("start"),
     weather: imgLightIcon("weather"),
+    theme : imgLightIcon("theme"),
     // Dark Versions
     calculator_dark: imgDarkIcon("calculator"),
     profile_dark: imgDarkIcon("profile"),
     start_dark:imgDarkIcon("start"),
     weather_dark: imgDarkIcon("weather"),
+    theme_dark : imgDarkIcon("theme"),
  }

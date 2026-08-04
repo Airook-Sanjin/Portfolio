@@ -1,4 +1,3 @@
-"use client";
 
 import {
   motion,
@@ -17,7 +16,7 @@ import {
   useState,
 } from "react";
 import PropTypes from "prop-types";
-
+import {getIconImage} from "../../../utils/icons";
 import "./TaskbarApps.css";
 
 function TaskbarItem({
@@ -191,7 +190,7 @@ export default function TaskbarApps({
             baseItemSize={baseItemSize}
           >
             <TaskbarIcon
-            image={item.icon}
+            image={getIconImage(item.appId,theme)}
               style={{
                 
                 backgroundSize: "cover",
@@ -215,7 +214,7 @@ export default function TaskbarApps({
         >
           <TaskbarIcon
           theme={theme}
-          image={theme==="light" ? "../../../../public/icons/light/theme.svg" : "../../../../public/icons/dark/theme.svg"}
+          image={getIconImage("theme". theme)}
           />
           <TaskbarLabel theme={theme}>{theme=== "light" ? "Light Mode" : "Dark Mode"}</TaskbarLabel>
 

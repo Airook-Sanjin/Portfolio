@@ -92,7 +92,6 @@ function SearchResultIcon({
       style={{
         width: size,
         height: size,
-        backgroundImage: image ? `url(${image})` : undefined,
         backgroundSize: "cover",
         backgroundPosition: "center",
         ...style,
@@ -130,8 +129,7 @@ export default function TaskbarSearch({
   const heightRow = useTransform(ishovered, [0, 1], [panelHeight, maxHeight]);
   const height = useSpring(heightRow, spring);
 
-  let Folder;
-  theme === "light" ? (Folder = "light") : (Folder = "dark");
+
 
   function handleSearchClick(value) {
     if (value === "") {
@@ -173,7 +171,7 @@ export default function TaskbarSearch({
             }}
           >
             {searchVal.trim() !== ""
-              ? APP_REGISTRY.map((app) => {
+              ? apps.map((app) => {
                   ishovered.set(1);
                   return (
                     <SearchResultItem
@@ -188,13 +186,10 @@ export default function TaskbarSearch({
                     >
                       <SearchResultIcon
                         style={{
-                          backgroundImage: app.image
-                            ? app.image
-                            : undefined,
                           backgroundSize: "cover",
                           backgroundPosition: "center",
                         }}
-                      />
+                      >{app.image}</SearchResultIcon>
                       <SearchResultLabel>{app.title}</SearchResultLabel>
                     </SearchResultItem>
                   );

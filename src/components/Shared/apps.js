@@ -46,4 +46,12 @@ export const APP_REGISTRY = [
     type: "internal",
     
   },
+  {
+    id:"fileManager",
+    iconLabel:"FileManager",
+    title:"File Manager",
+    x:40,
+    y:440,
+    type: "internal",
+  },
 ];

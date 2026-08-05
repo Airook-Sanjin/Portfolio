@@ -12,7 +12,7 @@ export default function welcomeApp({
       <div className="welcome-body">
         <div className="Icon"
           style={{
-            backgroundImage:`url(/appIcons/${Folder}/Startkey.svg)`,
+            backgroundImage:`url(/appIcons/${Folder}/start.svg)`,
             width: 150,
             height: 150,
             backgroundSize: "cover",

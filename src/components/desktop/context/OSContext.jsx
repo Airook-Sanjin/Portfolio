@@ -11,6 +11,64 @@ import {
 import useLocalStorageState from "../hooks/useLocaleStorage";
 import { APP_REGISTRY } from "../../Shared/apps";
 
+const initialFileSystem= [
+  {id:'this PC',
+    name:'This PC',
+    type:"folder",
+    createdAt: Date.now(),
+    updatedAt:Date.now(),
+  },
+  {id:'documents',
+    name:'Documents',
+    type:"folder",
+    createdAt: Date.now(),
+    updatedAt:Date.now(),
+  },
+  {id:'photos',
+    name:'Photos',
+    type:"folder",
+    createdAt: Date.now(),
+    updatedAt:Date.now(),
+  },
+  {id:'downloads',
+    name:'Downloads',
+    type:"folder",
+    createdAt: Date.now(),
+    updatedAt:Date.now(),
+  },
+];
+
+//* File System Manager  
+// TODO:
+//  - [] createFolder
+//  - [] createFile
+//  - [] DeleteItem
+//  - [] RenameItem
+//  - [] MoveItem
+//  - [] FindItem
+//  - [] getChildren
+//  - [] GenerateID
+//  - [] Restore from recycling
+//  - [] Permanently Delete
+//  - [] GetFolder Children
+//  - [] createFolder
+//  - [] createFolder
+//  - [] createFolder
+
+
+function useFileSystemManagerInternal(){
+
+  
+  const [fileSystem, setFileSystem] = useLocalStorageState("fileSystem", initialFileSystem);
+  const [recycleBin, setRecycleBin] = useLocalStorageState('recycleBin',[]);
+
+
+  const findItem = (items, id) => {items.find(item => item.id === id)};
+
+
+  const createFolder = () =>{}
+}
+
 // * Window Manager
 function useWindowManagerInternal() {
   let counterId = useRef(0);

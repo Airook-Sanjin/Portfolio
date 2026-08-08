@@ -44,20 +44,7 @@ const initialFileSystem= [
 
 //* File System Manager  
 // TODO:
-//  - [x] GenerateID
-//  - [x] getChildren
-//  - [x] FindItem
-
-//  - [x] createItem
-//  - [x] DeleteItem
-//  - [x] RenameItem
-//  - [] MoveItem
-//  - [] Restore from recycling
-//  - [] Permanently Delete
-//  - [] GetFolder Children
-//  - [] createFolder
-//  - [] createFolder
-//  - [] createFolder
+//  - [x] UI
 
 
 function useFileSystemManagerInternal(){
@@ -175,6 +162,18 @@ const permaDelete = useCallback((id) => {
 const getFolderChildren = useCallback((folderId) =>{
   return fileSystem.filter(Children => children.filter(child => child.parentId === folderId))
 },[fileSystem])
+
+return {
+  fileSystem,
+  recycleBin,
+  createItem,
+  deleteItem,
+  renameItem,
+  moveItem,
+  restoreItem,
+  permaDelete,
+  getFolderChildren,
+};
 
 }
 
@@ -519,10 +518,12 @@ const OSContext = createContext(null);
 export function OSProvider({ children }) {
   const WindowManager = useWindowManagerInternal();
   const IconManager = useIconDragInternal();
+  const fileManager = useFileSystemManagerInternal();
 
   const value = {
     ...WindowManager,
     ...IconManager,
+    ...fileManager
   };
   return <OSContext.Provider value={value}>{children}</OSContext.Provider>;
 }

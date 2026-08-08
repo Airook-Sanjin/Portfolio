@@ -15,24 +15,28 @@ const initialFileSystem= [
   {id:'this PC',
     name:'This PC',
     type:"folder",
+    parent: null,
     createdAt: Date.now(),
     updatedAt:Date.now(),
   },
   {id:'documents',
     name:'Documents',
     type:"folder",
+    parent: "this pc",
     createdAt: Date.now(),
     updatedAt:Date.now(),
   },
   {id:'photos',
     name:'Photos',
     type:"folder",
+    parent: "this pc",
     createdAt: Date.now(),
     updatedAt:Date.now(),
   },
   {id:'downloads',
     name:'Downloads',
     type:"folder",
+    parent: "this pc",
     createdAt: Date.now(),
     updatedAt:Date.now(),
   },
@@ -40,14 +44,15 @@ const initialFileSystem= [
 
 //* File System Manager  
 // TODO:
+//  - [x] GenerateID
+//  - [x] getChildren
+//  - [x] FindItem
+
 //  - [] createFolder
 //  - [] createFile
 //  - [] DeleteItem
 //  - [] RenameItem
 //  - [] MoveItem
-//  - [] FindItem
-//  - [] getChildren
-//  - [] GenerateID
 //  - [] Restore from recycling
 //  - [] Permanently Delete
 //  - [] GetFolder Children
@@ -64,9 +69,23 @@ function useFileSystemManagerInternal(){
 
 
   const findItem = (items, id) => {items.find(item => item.id === id)};
+  const generateID = () => Date.now() + "-" + Math.random().toString(36).slice(2,9);
+  const getChildren = (items, parentId) =>{items.filter(item => item.parent === parentId )}
+  const getPath = (items,id) => { 
+    const path = [];
+    let current = getItem(items,id);
+    while(current){
+      path.unshift(current);
+      current = findItem(items,parentId);
+    }
+    return path
+  
+  }
 
 
-  const createFolder = () =>{}
+
+
+  const createFolder = (id, ) => {}
 }
 
 // * Window Manager

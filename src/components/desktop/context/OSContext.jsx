@@ -15,28 +15,28 @@ const initialFileSystem= [
   {id:'this PC',
     name:'This PC',
     type:"folder",
-    parent: null,
+    parentId: null,
     createdAt: Date.now(),
     updatedAt:Date.now(),
   },
   {id:'documents',
     name:'Documents',
     type:"folder",
-    parent: "this pc",
+    parentId: "this pc",
     createdAt: Date.now(),
     updatedAt:Date.now(),
   },
   {id:'photos',
     name:'Photos',
     type:"folder",
-    parent: "this pc",
+    parentId: "this pc",
     createdAt: Date.now(),
     updatedAt:Date.now(),
   },
   {id:'downloads',
     name:'Downloads',
     type:"folder",
-    parent: "this pc",
+    parentId: "this pc",
     createdAt: Date.now(),
     updatedAt:Date.now(),
   },
@@ -84,8 +84,10 @@ function useFileSystemManagerInternal(){
 
   const createItem = useCallback((name, type, parent = "root", content = '') => {
     const newItem = {
+      id: generateID(),
       name,
-      type,parentId,
+      type,
+      parent,
       content: type ==="file"? content: undefined,
       createdAt: Date.now(),
       updatedAt: Date.now(),
@@ -134,7 +136,50 @@ const renameItem = useCallback((newName,id) => {
 
   })
 },[])
+
+
+const moveItem = useCallback((id,newParentId) => {
+  const isDescendant = (items, targetId,potentialParentId) => {
+    let current = items.find(item => item.id === potentialParentId);
+    while(current){
+      if(current.id === targetId) return true;
+      current = items.find(item => item.id === current.parentId);
+    }
+    return false;
+  };
+
+  setFileSystem(prev => {
+    if(isDescendant(prev,id,newParentId)) return prev;
+    prev.map(item => item.id ===id ? {...item,
+      parentId: newParentId,
+      updatedAt:Date.now(),
+    } : item)
+  })
+},[])
+
+
+const restoreItem = useCallback((id) =>{
+  const binItem = recycleBin.find(item => item.id === id);
+  if(!binItem) return;
+  setRecycleBin(prev => prev.filter(item => item.id != id));
+  const {deletedAt,...restored} = binItems;
+
+  setFileSystem(prev => [...prev, restored]);
+},[recycleBin])
+
+const permaDelete = useCallback((id) => {
+  setRecycleBin(prev => prev.filter(item => item.id != id));
+},[])
+
+
+const getFolderChildren = useCallback((folderId) =>{
+  return fileSystem.filter(Children => children.filter(child => child.parentId === folderId))
+},[fileSystem])
+
 }
+
+
+
 
 // * Window Manager
 function useWindowManagerInternal() {
@@ -467,6 +512,8 @@ function useIconDragInternal() {
     endAppDrag,
   };
 }
+
+
 const OSContext = createContext(null);
 
 export function OSProvider({ children }) {

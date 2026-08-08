@@ -48,10 +48,9 @@ const initialFileSystem= [
 //  - [x] getChildren
 //  - [x] FindItem
 
-//  - [] createFolder
-//  - [] createFile
-//  - [] DeleteItem
-//  - [] RenameItem
+//  - [x] createItem
+//  - [x] DeleteItem
+//  - [x] RenameItem
 //  - [] MoveItem
 //  - [] Restore from recycling
 //  - [] Permanently Delete
@@ -78,14 +77,63 @@ function useFileSystemManagerInternal(){
       path.unshift(current);
       current = findItem(items,parentId);
     }
-    return path
+    return path;
   
   }
 
 
+  const createItem = useCallback((name, type, parent = "root", content = '') => {
+    const newItem = {
+      name,
+      type,parentId,
+      content: type ==="file"? content: undefined,
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+    }
+    setFileSystem(prev => [...prev,newItem]);
+
+    return newItem;
+  },[] );
 
 
-  const createFolder = (id, ) => {}
+const deleteItem = useCallback((id) => {
+  const getDescendants = (items,parentId) => {
+    const children = items.filter(item => item.parentId === parentId);
+    let descendants = [...children];
+    children.foreach(child => {
+      descendants = [...descendants,...getDescendants(items,child.id)];
+    });
+    return descendants
+  };
+
+  setFileSystem(prev => {
+    const item = findItem(prev, id);
+    if (!item) return prev;
+    const descendants = getDescendants(id);
+    const itemsToDelete = [item,...descendants];
+    const remaining = prev.filter(i => !itemsToDelete.includes(i));
+
+    const deletedItems = itemsToDelete.map(i => ({
+      ...i,
+      deletedAt: Date.now(),
+
+    }));
+    setRecycleBin(prevBin => [...prevBin, deleteItems]);
+
+    return remaining;
+
+});
+},[]);
+
+const renameItem = useCallback((newName,id) => {
+  setFileSystem(prev=>{
+    prev.map(item.id === id ? 
+      {...item,
+          name:newName,
+        updatedAt:Date.now()} : item)
+
+  })
+},[])
 }
 
 // * Window Manager

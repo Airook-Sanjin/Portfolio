@@ -54,27 +54,30 @@ function useFileSystemManagerInternal(){
   const [recycleBin, setRecycleBin] = useLocalStorageState('recycleBin',[]);
 
 
-  const findItem = (items, id) => {items.find(item => item.id === id)};
+  const findItem = (items, id) => items.find(item => item.id === id);
+
   const generateID = () => Date.now() + "-" + Math.random().toString(36).slice(2,9);
-  const getChildren = (items, parentId) =>{items.filter(item => item.parent === parentId )}
+
+  const getChildren = (items, parentId) => items.filter(item => item.parentId === parentId )
+ 
   const getPath = (items,id) => { 
     const path = [];
-    let current = getItem(items,id);
+    let current = findItem(items,id);
     while(current){
       path.unshift(current);
-      current = findItem(items,parentId);
+      current = findItem(items,current.parentId);
     }
     return path;
   
   }
 
 
-  const createItem = useCallback((name, type, parent = "root", content = '') => {
+  const createItem = useCallback((name, type, parentId = "root", content = '') => {
     const newItem = {
       id: generateID(),
       name,
       type,
-      parent,
+      parentId,
       content: type ==="file"? content: undefined,
       createdAt: Date.now(),
       updatedAt: Date.now(),
@@ -86,6 +89,7 @@ function useFileSystemManagerInternal(){
 
 
 const deleteItem = useCallback((id) => {
+  
   const getDescendants = (items,parentId) => {
     const children = items.filter(item => item.parentId === parentId);
     let descendants = [...children];
@@ -98,7 +102,7 @@ const deleteItem = useCallback((id) => {
   setFileSystem(prev => {
     const item = findItem(prev, id);
     if (!item) return prev;
-    const descendants = getDescendants(id);
+    const descendants = getDescendants(prev, id);
     const itemsToDelete = [item,...descendants];
     const remaining = prev.filter(i => !itemsToDelete.includes(i));
 
@@ -107,7 +111,7 @@ const deleteItem = useCallback((id) => {
       deletedAt: Date.now(),
 
     }));
-    setRecycleBin(prevBin => [...prevBin, deleteItems]);
+    setRecycleBin(prevBin => [...prevBin, ...deletedItems]);
 
     return remaining;
 
@@ -116,10 +120,11 @@ const deleteItem = useCallback((id) => {
 
 const renameItem = useCallback((newName,id) => {
   setFileSystem(prev=>{
-    prev.map(item.id === id ? 
+    prev.map(item =>item.id === id ?  
       {...item,
-          name:newName,
-        updatedAt:Date.now()} : item)
+        name:newName,
+        updatedAt:Date.now()}
+        : item)
 
   })
 },[])
@@ -137,7 +142,7 @@ const moveItem = useCallback((id,newParentId) => {
 
   setFileSystem(prev => {
     if(isDescendant(prev,id,newParentId)) return prev;
-    prev.map(item => item.id ===id ? {...item,
+    return prev.map(item => item.id ===id ? {...item,
       parentId: newParentId,
       updatedAt:Date.now(),
     } : item)
@@ -148,19 +153,19 @@ const moveItem = useCallback((id,newParentId) => {
 const restoreItem = useCallback((id) =>{
   const binItem = recycleBin.find(item => item.id === id);
   if(!binItem) return;
-  setRecycleBin(prev => prev.filter(item => item.id != id));
-  const {deletedAt,...restored} = binItems;
+  setRecycleBin(prev => prev.filter(item => item.id !== id));
+  const {deletedAt,...restored} = binItem;
 
   setFileSystem(prev => [...prev, restored]);
 },[recycleBin])
 
 const permaDelete = useCallback((id) => {
-  setRecycleBin(prev => prev.filter(item => item.id != id));
+  setRecycleBin(prev => prev.filter(item => item.id !== id));
 },[])
 
 
 const getFolderChildren = useCallback((folderId) =>{
-  return fileSystem.filter(Children => children.filter(child => child.parentId === folderId))
+  return fileSystem.filter(Children =>  Children.parentId === folderId)
 },[fileSystem])
 
 return {
